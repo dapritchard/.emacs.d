@@ -4,7 +4,7 @@
 This function opens an info page as specified by FILE-OR-NODE.
 The name of the newly created buffer is of the form
 \"*info*<N>\", where N is taken to be one more than the next
-larget value of N for a buffer of this form.  If there are no
+largest value of N for a buffer of this form.  If there are no
 buffers yet of this form, then N starts at 1.
 
 See the documentation for `info' for a description of the
@@ -41,7 +41,7 @@ semantics of FILE-OR-NODE."
 
 
 (defun dp-info-emacs ()
-  "Open the Dired-x info."
+  "Open the Emacs info."
   (interactive)
   (dp-info "(Emacs)"))
 
