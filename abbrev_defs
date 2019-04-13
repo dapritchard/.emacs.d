@@ -474,7 +474,7 @@
     ("eforts" "efforts" nil 0)
     ("ehr" "her" nil 0)
     ("eligable" "eligible" nil 0)
-    ("emacs" "Emacs" nil 0)
+    ("emacs" "Emacs" nil 2)
     ("embarass" "embarrass" nil 0)
     ("emigre" "emigre" nil 0)
     ("enahancements" "enhancements" nil 0)
@@ -598,7 +598,7 @@
     ("hvae" "have" nil 0)
     ("hvaing" "having" nil 0)
     ("hwich" "which" nil 0)
-    ("i" "I" nil 0)
+    ("i" "I" nil 5)
     ("idae" "idea" nil 0)
     ("idaes" "ideas" nil 0)
     ("identifiy" "identify" nil 0)
@@ -663,6 +663,7 @@
     ("languange" "language" nil 0)
     ("lastyear" "last year" nil 0)
     ("learnign" "learning" nil 0)
+    ("legnth" "length" nil 3)
     ("lenght" "length" nil 0)
     ("levle" "level" nil 0)
     ("libary" "library" nil 0)
@@ -1079,6 +1080,8 @@
     ("yuo" "you" nil 0)
     ("yuor" "your" nil 2)
    ))
+
+(define-abbrev-table 'gnus-group-mode-abbrev-table '())
 
 (define-abbrev-table 'grep-mode-abbrev-table '())
 

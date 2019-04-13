@@ -239,6 +239,11 @@ Basic configurations
     '(progn
        (define-key flyspell-mode-map (kbd "C-;") nil)
        (define-key flyspell-mode-map (kbd "C-M-i") nil)))
+
+  ;; auto revert mode
+  (global-auto-revert-mode 1)
+  ;; auto refresh dired when file changes
+  (add-hook 'dired-mode-hook 'auto-revert-mode)
 #+END_SRC
 
 
@@ -465,6 +470,9 @@ For more detail, see the following links:
     :config
     (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 #+END_SRC
+
+
+
 
 * Auto-complete and textual substitution
 
@@ -1411,7 +1419,10 @@ package index.
 
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ess)
+  (use-package ess
+    :config
+    (setq ess-indent-with-fancy-comments nil)  ; disable ESS-style indentation.  Gets overriden by the style though.
+    (setf (cdr (assoc 'ess-indent-with-fancy-comments ess-own-style-list)) nil))  ; turn off fancy comments for `OWN` style
 
   ;; load Emacs Speaks Statistics
   (require 'ess-site)
@@ -1422,8 +1433,8 @@ package index.
   ;; assignment and the second line re-assigns it to the customized setting.
   (add-hook 'ess-mode-hook
             (lambda ()
-              (ess-set-style 'C++ 'quiet)                    ; recommended in R Internals man
-              (setq ess-indent-with-fancy-comments nil)      ; disable ESS-style indentation
+              (ess-set-style 'OWN 'quiet)                    ; all other settings besides RStudio mandate `ess-indent-with-fancy-comments` as `t`
+              (setq ess-indent-with-fancy-comments nil)      ; disable ESS-style indentation.  TODO: I've done this twice?
               (setq ess-smart-S-assign-key ";")  ; reassign ' <- ' to ';'
               (define-key ess-mode-map (kbd ";") 'ess-insert-assign)
               (define-key ess-mode-map (kbd "C-j") 'ess-eval-region-or-line-visibly-and-step)
