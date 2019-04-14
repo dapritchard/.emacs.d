@@ -15,7 +15,6 @@ non-hyphen character, whichever comes first."
   ;; whether there are already trailing columns or not.
   (let* ((is-last-char-hyphen (char-equal ?- (preceding-char)))
 	 (n-char-before-fill-column (- fill-column (current-column))))
-
     (cond
      ;; case: there's already some hyphens but not enough
      ((and (> n-char-before-fill-column 0) is-last-char-hyphen)
