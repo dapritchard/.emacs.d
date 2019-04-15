@@ -27,8 +27,14 @@
 
 
 (defun dp-r-find-last-command ()
-  "Move point to the beginning of the last command."
+  "Move point to the beginning of the last command.
+
+TODO: the ess-switch-to-inferior-or-script-buffer command
+requires a follow-up keypress to complete.  Figure out how to do
+this in elisp."
   (let ((end-of-line-position))
+    (when (not (derived-mode-p 'inferior-ess-r-mode))
+      (ess-switch-to-inferior-or-script-buffer nil))
     (goto-char (point-max))
     (move-beginning-of-line nil)
     (re-search-backward "^[:blank:]*>")

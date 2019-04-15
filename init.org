@@ -295,6 +295,20 @@ else if it sticks (i.e. if I don't find myself missing the keys).
 #+END_SRC
 
 
+Create a variant of =open-line= that actually indents the code on the new line,
+and replace the keybinding for =open-line= with the variant.
+#+BEGIN_SRC emacs-lisp
+  (defun open-line-and-indent ()
+    "Like `open-line', but with proper indentation."
+    (interactive)
+    (save-excursion
+      (newline-and-indent)))
+
+  ;; replace `open-line'
+  (global-set-key [remap open-line] #'open-line-and-indent)
+#+END_SRC
+
+
 Install =crux=.  See https://github.com/bbatsov/crux/.
 TODO: incorporate crux keybindings from above here.
 #+BEGIN_SRC emacs-lisp
@@ -310,8 +324,11 @@ Install =hydra=.  See https://github.com/abo-abo/hydra/.
 
 Personal library
 
+Note that =(kbd "C-h TAB")= is interpreted as =C-h C-i=.  See e.g.
+https://emacs.stackexchange.com/q/9631/15552.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C--") #'dp-fill-line-with-hyphens)
+  (global-set-key (kbd "C-h TAB") #'dp-info-emacs)  ;; TODO: make a hydra?
 #+END_SRC
 
 
@@ -1423,7 +1440,7 @@ package index.
 #+BEGIN_SRC emacs-lisp
   (use-package ess
     :config
-    (setq ess-indent-with-fancy-comments nil)  ; disable ESS-style indentation.  Gets overriden by the style though.
+    (setq ess-indent-with-fancy-comments nil)  ; disable ESS-style indentation.  TODO: Gets overriden by the style though?
     (setf (cdr (assoc 'ess-indent-with-fancy-comments ess-own-style-list)) nil))  ; turn off fancy comments for `OWN` style
 
   ;; load Emacs Speaks Statistics
@@ -1456,6 +1473,9 @@ package index.
               ;; (setq ess-sas-local-unix-keys t)                ; SAS keys, see section 13.5
               (setq ess-eval-visibly 'nowait)    ; don't hold Emacs while commands are run
               ))
+
+  (define-key inferior-ess-mode-map (kbd "C-S-m") (lambda () (interactive) (insert " %>% ")))
+  (define-key ess-r-mode-map (kbd "C-c j") #'hydra-r-print-last-var/body)
 
   ;; use polymode for markdown and R
   (use-package poly-markdown
