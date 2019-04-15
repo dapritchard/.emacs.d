@@ -261,35 +261,37 @@ else if it sticks (i.e. if I don't find myself missing the keys).
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-;; add / change keybindings.  See https://github.com/abo-abo/ace-window for
-;; details regarding ace-window
-(global-set-key (kbd "M-o") 'ace-window)
-;; (global-set-key (kbd "C-;") 'other-window)
-;; (global-set-key (kbd "C-M-;") 'previous-multiframe-window)
-(global-set-key (kbd "C-9") 'previous-buffer)
-(global-set-key (kbd "C-0") 'next-buffer)
-(global-set-key (kbd "M-[") 'scroll-down-line)
-(global-set-key (kbd "M-]") 'scroll-up-line)
-(global-set-key (kbd "C-.") 'xref-find-definitions-other-window)
-(global-set-key (kbd "C-x C-k") 'kill-this-buffer)
-(global-set-key [remap just-one-space] 'cycle-spacing)
+  ;; add / change keybindings.  See https://github.com/abo-abo/ace-window for
+  ;; details regarding ace-window
+  (global-set-key (kbd "M-o") 'ace-window)
+  ;; (global-set-key (kbd "C-;") 'other-window)
+  ;; (global-set-key (kbd "C-M-;") 'previous-multiframe-window)
+  (global-set-key (kbd "C-9") 'previous-buffer)
+  (global-set-key (kbd "C-0") 'next-buffer)
+  (global-set-key (kbd "M-[") 'scroll-down-line)
+  (global-set-key (kbd "M-]") 'scroll-up-line)
+  (global-set-key (kbd "C-.") 'xref-find-definitions-other-window)
+  (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
+  (global-set-key [remap just-one-space] 'cycle-spacing)
 
-;; crux shortcuts.  See https://github.com/bbatsov/crux
-(global-set-key (kbd "C-c I") #'crux-find-user-init-file)
-(global-set-key [remap kill-whole-line] #'crux-kill-whole-line)  ; places point at the correct indentation after deletion
-(global-set-key (kbd "C-S-k") #'crux-kill-line-backwards)
-(global-set-key [(shift return)] #'crux-smart-open-line)           ; doesn't change any test on current line before starting a new line below and moving point
-(global-set-key (kbd "C-S-<return>") #'crux-smart-open-line-above) ; doesn't change any test on current line before starting a new line above and moving point
-(global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
-(global-set-key (kbd "C-c M-d") #'crux-duplicate-and-comment-current-line-or-region)
+  ;; crux shortcuts.  See https://github.com/bbatsov/crux
+  (global-set-key (kbd "C-c I") #'crux-find-user-init-file)
+  (global-set-key [remap kill-whole-line] #'crux-kill-whole-line)  ; places point at the correct indentation after deletion
+  (global-set-key (kbd "C-S-k") #'crux-kill-line-backwards)
+  (global-set-key [(shift return)] #'crux-smart-open-line)           ; doesn't change any test on current line before starting a new line below and moving point
+  (global-set-key (kbd "C-S-<return>") #'crux-smart-open-line-above) ; doesn't change any test on current line before starting a new line above and moving point
+  (global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
+  (global-set-key (kbd "C-c M-d") #'crux-duplicate-and-comment-current-line-or-region)
 
 
-;; change info mode keybindings.  By default `n` and `p` go to the next and
-;; previous node which always causes me problems.  This changes them to scroll
-;; between links.
-(progn
-  (define-key Info-mode-map (kbd "n") 'Info-next-reference)
-  (define-key Info-mode-map (kbd "p") 'Info-prev-reference))
+  ;; change info mode keybindings.  By default `n` and `p` go to the next and
+  ;; previous node which always causes me problems.  This changes them to scroll
+  ;; between links.
+  (progn
+    (define-key Info-mode-map (kbd "n") 'Info-next-reference)
+    (define-key Info-mode-map (kbd "p") 'Info-prev-reference))
+
+  (define-key emacs-lisp-mode-map (kbd "C-M-i") nil)
 #+END_SRC
 
 
