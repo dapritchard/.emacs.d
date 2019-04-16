@@ -720,6 +720,9 @@ Use the commands =sunrise= or =sunrise-cd= to start.
     (setq ibuffer-never-show-predicates
           '("\\*help\\[R\\]\\(.*\\)\\[head-tail\\]"
             "\\*help\\[R\\]\\(.*\\)\\*\\[R\\]")))
+
+  (load (expand-file-name "~/.emacs.d/hydras/hydra-ibuffer.el"))
+  (define-key ibuffer-mode-map "." 'hydra-ibuffer-main/body)
 #+END_SRC
 
 

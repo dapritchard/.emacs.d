@@ -12,8 +12,10 @@
         backward-sexp
         beginning-of-visual-line
         c-electric-brace
+        c-electric-colon
         c-electric-delete-forward
         c-electric-lt-gt
+        c-electric-paren
         c-electric-semi&comma
         counsel-M-x
         cycle-spacing
