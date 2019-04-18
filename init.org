@@ -375,12 +375,21 @@ for the commands used below to turn off Vim commands in insert mode.
   (setq custom-theme-directory "~/.emacs.d/themes/")
   ;; (load-theme 'blippblopp t)
 
-  ;; specify theme.  See https://stackoverflow.com/a/26555466/5518304 for color
-  ;; mods.
+  ;; specify theme.  See https://stackoverflow.com/a/26555466/5518304 for region
+  ;; color modification.  TODO: this changes the face for all themes?  Can it be
+  ;; incorporated into the zenburn-specific code in the following code block?
   (use-package zenburn-theme
     :config
     (load-theme 'zenburn t)
     (set-face-attribute 'region nil :background "#666" :foreground "#ffffff"))
+
+  ;; See https://emacs.stackexchange.com/q/20608/15552 for
+  (with-eval-after-load "zenburn-theme"
+    (zenburn-with-color-variables
+      (custom-theme-set-faces
+       'zenburn
+       ;; original `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
+       `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg-05)))))))
 #+END_SRC
 
 
