@@ -169,6 +169,10 @@
 
 (define-abbrev-table 'ess-watch-mode-abbrev-table '())
 
+(define-abbrev-table 'evil-command-window-mode-abbrev-table '())
+
+(define-abbrev-table 'evil-list-view-mode-abbrev-table '())
+
 (define-abbrev-table 'eww-bookmark-mode-abbrev-table '())
 
 (define-abbrev-table 'eww-buffers-mode-abbrev-table '())
@@ -178,6 +182,8 @@
 (define-abbrev-table 'eww-mode-abbrev-table '())
 
 (define-abbrev-table 'ffip-diff-mode-abbrev-table '())
+
+(define-abbrev-table 'flycheck-error-list-mode-abbrev-table '())
 
 (define-abbrev-table 'flymake-diagnostics-buffer-mode-abbrev-table '())
 
@@ -192,6 +198,8 @@
 (define-abbrev-table 'git-commit-elisp-text-mode-abbrev-table '())
 
 (define-abbrev-table 'gitconfig-mode-abbrev-table '())
+
+(define-abbrev-table 'gitignore-mode-abbrev-table '())
 
 (define-abbrev-table 'global-abbrev-table
   '(
@@ -292,7 +300,7 @@
     ("availalbe" "available" nil 0)
     ("awya" "away" nil 0)
     ("aywa" "away" nil 0)
-    ("bakc" "back" nil 0)
+    ("bakc" "back" nil 1)
     ("balence" "balance" nil 0)
     ("ballance" "balance" nil 0)
     ("baout" "about" nil 0)
@@ -507,6 +515,7 @@
     ("donig" "doing" nil 0)
     ("dont" "don't" nil 0)
     ("dosnt" "doesn't" nil 0)
+    ("doubel" "double" nil 2)
     ("driveing" "driving" nil 0)
     ("drnik" "drink" nil 0)
     ("eclair" "eclair" nil 0)
@@ -556,6 +565,7 @@
     ("finnally" "finally" nil 0)
     ("finnish" "finish" nil 0)
     ("firends" "friends" nil 0)
+    ("firtile" "fertile" nil 1)
     ("firts" "first" nil 0)
     ("fixit" "fix it" nil 0)
     ("follwo" "follow" nil 0)
@@ -744,7 +754,7 @@
     ("mroe" "more" nil 0)
     ("mysefl" "myself" nil 0)
     ("myu" "my" nil 0)
-    ("naive" "naive" nil 0)
+    ("naive" "naive" nil 2)
     ("necassarily" "necessarily" nil 0)
     ("necassary" "necessary" nil 0)
     ("neccessarily" "necessarily" nil 0)
@@ -760,7 +770,7 @@
     ("obediant" "obedient" nil 0)
     ("ocasion" "occasion" nil 0)
     ("occassion" "occasion" nil 0)
-    ("occured" "occurred" nil 0)
+    ("occured" "occurred" nil 1)
     ("occurence" "occurrence" nil 0)
     ("occurences" "occurrences" nil 0)
     ("occurrance" "occurrence" nil 0)
@@ -904,6 +914,7 @@
     ("reult" "result" nil 0)
     ("reveiw" "review" nil 0)
     ("reveiwing" "reviewing" nil 0)
+    ("rign" "ring" nil 1)
     ("rumers" "rumors" nil 0)
     ("runnning" "running" nil 0)
     ("rwite" "write" nil 0)
@@ -992,7 +1003,7 @@
     ("talkign" "talking" nil 0)
     ("tath" "that" nil 0)
     ("tecnical" "technical" nil 0)
-    ("teh" "the" nil 0)
+    ("teh" "the" nil 2)
     ("tehy" "they" nil 0)
     ("terminiated" "terminated" nil 0)
     ("termoil" "turmoil" nil 0)
@@ -1202,6 +1213,18 @@
 
 (define-abbrev-table 'magit-submodule-list-mode-abbrev-table '())
 
+(define-abbrev-table 'makefile-automake-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-bsdmake-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-gmake-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-imake-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-makepp-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-mode-abbrev-table '())
+
 (define-abbrev-table 'markdown-mode-abbrev-table '())
 
 (define-abbrev-table 'markdown-view-mode-abbrev-table '())
@@ -1339,3 +1362,4 @@
 (define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
 
 (define-abbrev-table 'yaml-mode-abbrev-table '())
+

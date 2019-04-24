@@ -17,6 +17,7 @@
         c-electric-lt-gt
         c-electric-paren
         c-electric-semi&comma
+        c-electric-star
         counsel-M-x
         cycle-spacing
         end-of-visual-line
@@ -28,6 +29,12 @@
         ess-smart-S-assign
         ess-smart-comma
         ess-yank
+        evil-backward-char
+        evil-backward-word-begin
+        evil-delete
+        evil-forward-word-end
+        evil-next-line
+        evil-previous-line
         forward-sexp
         icicle-goto-marker-or-set-mark-command
         icicle-yank-maybe-completing
@@ -76,6 +83,7 @@
         ace-window
         ess-r-devtools-load-package
         ess-set-style
+        evil-scroll-page-down
         eyebrowse-switch-to-window-config-1
         eyebrowse-switch-to-window-config-2
         hydra-multiple-cursors/mc/mark-all-words-like-this-in-defun-and-exit

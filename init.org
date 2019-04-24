@@ -336,14 +336,23 @@ https://emacs.stackexchange.com/q/9631/15552.
 
 *** Evil mode
 
+See
+http://puntoblogspot.blogspot.com/2014/01/evil-exact-amount-of-vim-in-emacs-but.html
+for the commands used below to turn off Vim commands in insert mode.
 #+BEGIN_SRC emacs-lisp
-  ;; (use-package evil-mode)
+  (use-package evil
+    :config
+    (evil-mode 1)
+    ;; turn off Vim commands in insert mode
+    (setcdr evil-insert-state-map nil)
+    (define-key evil-insert-state-map [escape] 'evil-normal-state))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-  ;; (use-package evil-escape
-  ;;   :config
-  ;;   (setq-default evil-escape-key-sequence "kj"))
+  (use-package evil-escape
+    :config
+    (setq-default evil-escape-key-sequence "kj")
+    (evil-escape-mode))
 #+END_SRC
 
 
