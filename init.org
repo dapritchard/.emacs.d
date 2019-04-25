@@ -355,6 +355,15 @@ for the commands used below to turn off Vim commands in insert mode.
     (evil-escape-mode))
 #+END_SRC
 
+Attempt to keep undo-tree from breaking under Evil.  See
+https://www.reddit.com/r/emacs/comments/85t95p/undo_tree_unrecognized_entry_in_undo_list/ and
+https://emacs.stackexchange.com/a/34214/15552
+#+BEGIN_SRC emacs-lisp
+  (setq undo-tree-enable-undo-in-region nil)
+  (define-key undo-tree-map (kbd "C-/") nil)
+  (global-set-key (kbd "C-/") nil)
+#+END_SRC
+
 
 
 
