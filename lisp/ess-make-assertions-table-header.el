@@ -2,101 +2,56 @@
 
 
 (defun dp-r-insert-testthat-table-header ()
-  (let ((starting-point (point))
-        (starting-line (line-number-at-pos))
-        (separator-positions)
-        (column-positions)
-        (req-nchar-colsep 2))
+  "Insert a testthat table header.
 
-    ;; find the table header column positions
-    (forward-line)
-    (if ((eq (line-number-at-pos) starting-line))
-        (error "no following line"))
-    (setq separator-positions (dp-r-find-testthat-table-positions))
-    (setq column-positions (mapcar current-column buffer-positions))
-
-    ;; insert newline
-    (end-of-line 0)
-    (newline)
+Inserts two lines of commented code above a testthat assertion
+function aligning with the assertion arguments.  Assumes that
+point is on a line with a testthat assertion function, and that
+the first two arguments corresponding to the actual value and the
+target value are on the same line."
+  (interactive)
+  (let ((field-entries-1 '("# assertion" "actual" "target"))
+        (field-entries-2 '("# ---------" "------" "------"))
+        (col-positions (dp-r-find-testthat-table-positions))
+        (nchar-padding 2)
+        (print-row))
 
     ;; insert assertion header
-    (move-to-column (car column-positions))
-    (insert "# assertion")
-
-    ;; conditionally delete characters when the length of the column header is
-    ;; longer than the start of the next column minus the required padding size,
-    ;; and insert spaces until the start of the next column
-    (let ((nchar-betw-cols (- (cadr column-positions) (current-column))))
-      (when (< nchar-betw-cols req-nchar-colsep)
-        ((delete-char (- nchar-betw-cols req-nchar-colsep)))))
-    (insert-char ?\s (- (cadr column-positions) (current-column)))
+    (move-to-column 0)
+    (setq print-row (dp-make-print-row col-positions nchar-padding))
+    (funcall print-row field-entries-1)
+    (funcall print-row field-entries-2)))
 
 
-    ()
-    ))
-
-
-
-
-
-
-
-;; (defun dp-make-field-entry-list (entries positions)
-;;   ;; ENTRIES and POSITIONS must be lists of the same length, with the elements
-;;   ;; of ENTRIES all strings, and the elements of POSITIONS all nonnegative
-;;   ;; integers that are increasing in value
-;;   (assert (and (listp entries) (listp positions) (eq (length entries) (length positions))))
-;;   (assert (not (member nil (mapcar #'stringp entries))))
-;;   (assert (not (member nil (mapcar #'integerp positions))))
-;;   )
-
-;; (defun dp-r-insert-row (field-entry-list req-nchar-colsep)
-
-
-;;   ;; insert newline
-;;   (end-of-line 0)
-;;   (newline)
-
-;;   (while field-entry-list
-;;     (let ((entry-val (car (assoc 'entries field-entry-list)))
-;;           (col-pos (car (assoc 'col-positions field-entry-list))))
-
-;;       ;; conditionally delete characters if we are past the start of the next
-;;       ;; column minus the required padding size
-;;       (let ((nchar-betw-cols (- col-pos (current-column))))
-;;         (when (< nchar-betw-cols req-nchar-colsep)
-;;           ((delete-char (- nchar-betw-cols req-nchar-colsep)))))
-
-;;       ;; insert spaces until the start of the next column and insert field
-;;       (insert-char ?\s (- col-pos (current-column)))
-;;       (insert entry-val)
-
-;;       (setq field-entry-list (cdr field-entry-list))
-;;       ))
-;;   )
 
 
 (defun dp-r-find-testthat-table-positions ()
-  (interactive)
+  "Find the positions for a testthat table header.
+
+Assumes that point is on a line with a function call and at least
+two arguments.  Returns the position of the first non-whitespace
+character on the line, the start of the first argument of the
+function call, and the start of the second argument of the
+function call."
   (let ((assertion-pos)
         (actual-pos)
         (target-pos))
 
     ;; find beginning of line
     (back-to-indentation)
-    (setq assertion-pos (point))
+    (setq assertion-pos (current-column))
 
     ;; find beginning of first argument
     (skip-chars-forward "^(")
     (forward-char)
     (skip-chars-forward "[:space:]")
-    (setq actual-pos (point))
+    (setq actual-pos (current-column))
 
     ;; find beginning of second argument
     (dp-r-find-next-fcn-arg-separator)
     (forward-char)
     (skip-chars-forward "[:space:]")
-    (setq target-pos (point))
+    (setq target-pos (current-column))
 
     (list assertion-pos actual-pos target-pos)))
 
@@ -113,7 +68,6 @@ argument list.
 
 Throws an error if there are no more top-level function
 separators."
-  (interactive)
 
   ;; move past the current character and any whitespace
   (forward-char)
@@ -142,7 +96,6 @@ separators."
 Returns a list of the function argument separator positions.
 Assumes that point is at the opening parenthesis of the function
 argument list."
-  (interactive)
 
   ;; find the position of the next function argument separator if any
   ;; separaotors remain, or return nil otherwise
@@ -160,5 +113,4 @@ argument list."
       (setq sep-positions (cons curr-pos sep-positions))
       (setq curr-pos (try-find-next)))
 
-    ;; reverse the positions list and return
     (reverse sep-positions)))

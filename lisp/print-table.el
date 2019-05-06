@@ -18,10 +18,6 @@ If the previous entry is too long to fit in before the current
 entry with NCHAR-PADDING amount of spaces, then the previous
 entry is truncated."
 
-  ;; insert newline
-  (end-of-line 0)
-  (newline)
-
   ;; tracks whether the next column to insert is the first column
   (let ((is-first-col t))
 
@@ -46,7 +42,9 @@ entry is truncated."
         ;; are past the first column
         (setq field-entries (cdr field-entries))
         (setq col-positions (cdr col-positions))
-        (setq is-first-col nil)))))
+        (setq is-first-col nil)))
+
+    (newline)))
 
 
 
