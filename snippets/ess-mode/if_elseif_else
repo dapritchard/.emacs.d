@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: if-else if-else statement
+# key: ifelse
+# --
+if (${condition}) {
+  $0
+}
+else if (${condition}) {
+
+}
+else if (${condition}) {
+
+}
+else if (${condition}) {
+
+}
+else {
+
+}

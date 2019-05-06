@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: for_seq_along
+# name: for loop using seq_along
 # key: foral
 # --
 for (${var} in seq_along(${vec})) {
 
-       $0
+  $0
 }

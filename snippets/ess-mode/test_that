@@ -3,5 +3,5 @@
 # key: te
 # --
 test_that("${1:description}", {
-    $0
+  $0
 })

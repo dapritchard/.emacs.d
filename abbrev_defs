@@ -107,6 +107,8 @@
 
 (define-abbrev-table 'css-mode-abbrev-table '())
 
+(define-abbrev-table 'deadgrep-mode-abbrev-table '())
+
 (define-abbrev-table 'diff-mode-abbrev-table '())
 
 (define-abbrev-table 'doctex-mode-abbrev-table '())
@@ -158,6 +160,8 @@
    ))
 
 (define-abbrev-table 'ess-r-transcript-mode-abbrev-table '())
+
+(define-abbrev-table 'ess-rdired-mode-abbrev-table '())
 
 (define-abbrev-table 'ess-stata-help-mode-abbrev-table '())
 
@@ -318,7 +322,7 @@
     ("becuase" "because" nil 0)
     ("becuse" "because" nil 0)
     ("befoer" "before" nil 0)
-    ("beggining" "beginning" nil 0)
+    ("beggining" "beginning" nil 1)
     ("begining" "beginning" nil 0)
     ("beginining" "beginning" nil 0)
     ("behabviour" "behaviour" nil 0)
@@ -343,6 +347,7 @@
     ("bve" "be" nil 0)
     ("cafe" "cafe" nil 0)
     ("caharcter" "character" nil 0)
+    ("cahr" "char" nil 1)
     ("calcullated" "calculated" nil 0)
     ("calulated" "calculated" nil 0)
     ("candidtae" "candidate" nil 0)
@@ -585,6 +590,7 @@
     ("frmo" "from" nil 0)
     ("fromt he" "from the" nil 0)
     ("fromthe" "from the" nil 0)
+    ("funciton" "function" nil 2)
     ("funcitons" "functions" nil 1)
     ("functoin" "function" nil 5)
     ("furneral" "funeral" nil 0)
@@ -733,7 +739,6 @@
     ("loev" "love" nil 0)
     ("lonly" "lonely" nil 0)
     ("lookign" "looking" nil 0)
-    ("lookup" "look up" nil 0)
     ("maintenence" "maintenance" nil 0)
     ("makeing" "making" nil 0)
     ("managment" "management" nil 0)
@@ -836,6 +841,7 @@
     ("porblem" "problem" nil 0)
     ("porblems" "problems" nil 0)
     ("porvide" "provide" nil 0)
+    ("positinos" "positions" nil 1)
     ("possable" "possible" nil 0)
     ("postition" "position" nil 0)
     ("potentialy" "potentially" nil 0)
@@ -923,6 +929,7 @@
     ("saidit" "said it" nil 0)
     ("saidthat" "said that" nil 0)
     ("saidthe" "said the" nil 0)
+    ("samll" "small" nil 1)
     ("scedule" "schedule" nil 0)
     ("sceduled" "scheduled" nil 0)
     ("scen" "scene" nil 0)
@@ -1003,7 +1010,7 @@
     ("talkign" "talking" nil 0)
     ("tath" "that" nil 0)
     ("tecnical" "technical" nil 0)
-    ("teh" "the" nil 2)
+    ("teh" "the" nil 5)
     ("tehy" "they" nil 0)
     ("terminiated" "terminated" nil 0)
     ("termoil" "turmoil" nil 0)
@@ -1038,7 +1045,7 @@
     ("tihs" "this" nil 0)
     ("timne" "time" nil 0)
     ("tiogether" "together" nil 0)
-    ("tje" "the" nil 0)
+    ("tje" "the" nil 1)
     ("tjhe" "the" nil 0)
     ("tkae" "take" nil 0)
     ("tkaes" "takes" nil 0)
@@ -1148,6 +1155,8 @@
 (define-abbrev-table 'ibuffer-mode-abbrev-table '())
 
 (define-abbrev-table 'idl-mode-abbrev-table '())
+
+(define-abbrev-table 'inferior-emacs-lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-ess-julia-mode-abbrev-table '())
 
@@ -1278,6 +1287,10 @@
 (define-abbrev-table 'python-mode-skeleton-abbrev-table
   '(
    ))
+
+(define-abbrev-table 'reb-lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'reb-mode-abbrev-table '())
 
 (define-abbrev-table 'sas-dir-mode-abbrev-table '())
 

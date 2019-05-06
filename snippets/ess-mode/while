@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: while
+# name: while loop
 # key: wh
 # --
 while(${cond}) {
 
-   $0
+  $0
 }
