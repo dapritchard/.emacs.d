@@ -33,27 +33,46 @@ two arguments.  Returns the position of the first non-whitespace
 character on the line, the start of the first argument of the
 function call, and the start of the second argument of the
 function call."
+
+  (defun throw-if-eol ()
+    (when (eolp)
+      (error "reached the end of the line without finding two function arguments")))
+
   (let ((assertion-pos)
         (actual-pos)
-        (target-pos))
+        (target-pos)
+        (col-positions '()))
 
-    ;; find beginning of line
-    (back-to-indentation)
-    (setq assertion-pos (current-column))
+    ;; move to the first non-whitespace character on the current line if the
+    ;; line is nonempty, or the next non-whitespace character otherwise
+    (move-to-column 0)
+    (skip-chars-forward "[:space:]")
+    (throw-if-eol)
+    (setq assertion-pos (point))
+    (setq col-positions (cons (current-column) col-positions))
 
     ;; find beginning of first argument
     (skip-chars-forward "^(")
     (forward-char)
     (skip-chars-forward "[:space:]")
-    (setq actual-pos (current-column))
+    (throw-if-eol)
+    (setq actual-pos (point))
+    (setq col-positions (cons (current-column) col-positions))
 
     ;; find beginning of second argument
     (dp-r-find-next-fcn-arg-separator)
     (forward-char)
     (skip-chars-forward "[:space:]")
-    (setq target-pos (current-column))
+    (throw-if-eol)
+    (setq target-pos (point))
+    (setq col-positions (cons (current-column) col-positions))
 
-    (list assertion-pos actual-pos target-pos)))
+    ;; ensure that all three positions are on the same line
+    (unless (and (eq (line-number-at-pos assertion-pos) (line-number-at-pos actual-pos))
+                 (eq (line-number-at-pos actual-pos) (line-number-at-pos target-pos)))
+      (error "the assertion statement is not all on the same line"))
+
+    (reverse col-positions)))
 
 
 
