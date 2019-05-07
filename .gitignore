@@ -17,6 +17,7 @@ init.el
 network-security.data
 org-clock-save.el
 projectile-bookmarks.eld
+projectile.cache
 recentf
 savehist
 themes

@@ -273,6 +273,7 @@ else if it sticks (i.e. if I don't find myself missing the keys).
   (global-set-key (kbd "C-.") 'xref-find-definitions-other-window)
   (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
   (global-set-key [remap just-one-space] 'cycle-spacing)
+  (global-set-key (kbd "C-x \\") #'align-regexp)
 
   ;; crux shortcuts.  See https://github.com/bbatsov/crux
   (global-set-key (kbd "C-c I") #'crux-find-user-init-file)
@@ -1323,6 +1324,26 @@ TODO:
   (projectile-mode +1))
 (setq projectile-switch-project-action #'projectile-dired)
 (setq projectile-completion-system 'ivy)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (defun dp-projectile-test-prefix (project-type)
+    "Specify additional test prefixes for projectile.
+
+  Allows us to add test prefixes for additional languages that
+  don't have prefixes specified in projectile's internal data.  For
+  languages that already have existing test prefix data, we simply
+  act as a pass-through for `projectile-test-prefix'.
+
+  Set `projectile-test-prefix-function' to use this function
+  instead of `projectile-test-prefix'."
+    (cond
+     ((eq project-type 'r) "test_")
+     (t                    (projectile-test-prefix project-type))))
+
+
+  ;; use our pass-through function in place of `projectile-test-prefix'
+  (setq projectile-test-prefix-function #'dp-projectile-test-prefix)
 #+END_SRC
 
 Enable counsel projectile mode.  See

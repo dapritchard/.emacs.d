@@ -57,9 +57,7 @@
 
 (define-abbrev-table 'autoconf-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'awk-mode-abbrev-table '())
 
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
 
@@ -71,13 +69,9 @@
 
 (define-abbrev-table 'browse-kill-ring-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c++-mode-abbrev-table '())
 
-(define-abbrev-table 'c-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c-mode-abbrev-table '())
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -229,6 +223,7 @@
     ("acurate" "accurate" nil 0)
     ("addictional" "additional" nil 0)
     ("additinal" "additional" nil 0)
+    ("additinoal" "additional" nil 1)
     ("addtional" "additional" nil 0)
     ("addtions" "additions" nil 0)
     ("adequit" "adequate" nil 0)
@@ -1176,9 +1171,7 @@
 
 (define-abbrev-table 'ivy-occur-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'java-mode-abbrev-table '())
 
 (define-abbrev-table 'js-jsx-mode-abbrev-table '())
 
@@ -1248,9 +1241,7 @@
 
 (define-abbrev-table 'neotree-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'objc-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
@@ -1270,9 +1261,7 @@
 
 (define-abbrev-table 'pdf-outline-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'pike-mode-abbrev-table '())
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
