@@ -26,13 +26,13 @@ target value are on the same line."
 
 
 (defun dp-r-find-testthat-table-positions ()
-  "Find the positions for a testthat table header.
+  "Find the column positions for a testthat table header.
 
 Assumes that point is on a line with a function call and at least
-two arguments.  Returns the position of the first non-whitespace
-character on the line, the start of the first argument of the
-function call, and the start of the second argument of the
-function call."
+two arguments.  Returns the column position of the first
+non-whitespace character on the line, the start of the first
+argument of the function call, and the start of the second
+argument of the function call."
 
   (defun throw-if-eol ()
     (when (eolp)
@@ -89,8 +89,10 @@ Throws an error if there are no more top-level function
 separators."
 
   ;; move past the current character and any whitespace
-  (forward-char)
-  (skip-chars-forward "[:space:]")
+  (if (eolp)
+      (beginning-of-line 2)
+    (forward-char))
+  (skip-chars-forward "[:space:]\n")
 
   ;; each iteration moves point across one sexp and any trailing whitespace.
   ;; Note that `forward-sexp' throws an error if we reach the closing
@@ -99,7 +101,7 @@ separators."
   ;; or if the function is called outside of a function argument list.
   (while (not (eq (char-after) ?,))
     (forward-sexp)
-    (skip-chars-forward "[:space:]")
+    (skip-chars-forward "[:space:]\n")
     (when (eobp)
       (error "reached buffer end without finding the function end")))
 
