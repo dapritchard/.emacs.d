@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lexical bindings header for Emacs lisp
+# key: lex
+# --
+;; -*- lexical-binding: t -*-$0
