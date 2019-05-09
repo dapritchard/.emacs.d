@@ -1,0 +1,37 @@
+# -*- mode: snippet -*-
+# key: parse_args
+# name: Parsing command-line arguments
+# --
+# remove a prefix \`prefix\` from the start of a string \`str\`
+extract_arg <- function(str, prefix) {
+  substr(str, nchar(prefix) + 1L, nchar(str))
+}
+
+# set default values for arguments
+${2:var name for an integer} <- 12345L
+${4:var name for a real    } <- 122.9
+${6:var name for a Boolean } <- FALSE
+${8:var name for a string  } <- "asdf"
+
+args <- commandArgs(trailingOnly=TRUE)
+for (a in args) {
+
+if (startsWith(a, "${1:CLI argument expecting an integer such as --myarg=}")) {
+    $2 <- as.integer(extract_arg(a, "$1"))
+    stopifnot(!is.na($2))
+  }
+  else if (startsWith(a, "${3:CLI argument expecting a real}")) {
+    $4 <- as.numeric(extract_arg(a, "$3"))
+    stopifnot(!is.na($4))
+  }
+  else if (startsWith(a, "${5:CLI argument expecting a Boolean}")) {
+    $6 <- as.numeric(extract_arg(a, "$5"))
+    stopifnot(!is.na($6))
+  }
+  else if (startsWith(a, "${7:CLI argument expecting a string}")) {
+    $8 <- as.numeric(extract_arg(a, "$7"))
+  }
+  else {
+    stop("unknown argument:  ", a)
+  }
+}
