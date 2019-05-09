@@ -34,7 +34,9 @@
         evil-delete
         evil-forward-word-end
         evil-next-line
+        evil-normal-state
         evil-previous-line
+        evil-replace
         forward-sexp
         icicle-goto-marker-or-set-mark-command
         icicle-yank-maybe-completing
@@ -83,6 +85,8 @@
         ace-window
         ess-r-devtools-load-package
         ess-set-style
+        evil-emacs-state
+        evil-scroll-down
         evil-scroll-page-down
         eyebrowse-switch-to-window-config-1
         eyebrowse-switch-to-window-config-2
