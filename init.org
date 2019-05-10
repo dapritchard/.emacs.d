@@ -1400,10 +1400,12 @@ TODO:
   Allows us to add test prefixes for additional languages that
   don't have prefixes specified in projectile's internal data.  For
   languages that already have existing test prefix data, we simply
-  act as a pass-through for `projectile-test-prefix'.
+  act as a pass-through for the default function used for this
+  purpose, `projectile-test-prefix'.
 
-  Set `projectile-test-prefix-function' to use this function
-  instead of `projectile-test-prefix'."
+  In order to actually use this function in the place of
+  `projectile-test-prefix', we can change the value of
+  `projectile-test-prefix-function' "
     (cond
      ((eq project-type 'r) "test_")
      (t                    (projectile-test-prefix project-type))))
@@ -1411,6 +1413,9 @@ TODO:
 
   ;; use our pass-through function in place of `projectile-test-prefix'
   (setq projectile-test-prefix-function #'dp-projectile-test-prefix)
+  (add-to-list 'safe-local-variable-values
+               '(projectile-test-prefix-function . dp-projectile-test-prefix))
+
 #+END_SRC
 
 Enable counsel projectile mode.  See
