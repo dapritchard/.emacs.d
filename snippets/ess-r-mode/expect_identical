@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: expect_identical
+# key: qexid
+# --
+expect_identical(${actual}, ${target})$0

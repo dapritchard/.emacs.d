@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: expect_equal
+# key: qexeq
+# --
+expect_equal(${actual}, ${target})$0

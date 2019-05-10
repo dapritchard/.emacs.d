@@ -28,10 +28,10 @@
         ess-roxy-newline-and-indent
         ess-smart-S-assign
         ess-smart-comma
-        ess-yank
         evil-backward-char
         evil-backward-word-begin
         evil-delete
+        evil-forward-char
         evil-forward-word-end
         evil-next-line
         evil-normal-state
