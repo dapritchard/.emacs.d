@@ -41,6 +41,10 @@
     ("`va" "\\value" nil 0)
    ))
 
+(define-abbrev-table 'Rd-mode-skeleton-abbrev-table
+  '(
+   ))
+
 (define-abbrev-table 'S+-transcript-mode-abbrev-table '())
 
 (define-abbrev-table 'SAS-listing-mode-abbrev-table '())
@@ -780,7 +784,7 @@
     ("occassion" "occasion" nil 0)
     ("occured" "occurred" nil 1)
     ("occurence" "occurrence" nil 0)
-    ("occurences" "occurrences" nil 0)
+    ("occurences" "occurrences" nil 1)
     ("occurrance" "occurrence" nil 0)
     ("ocur" "occur" nil 0)
     ("odbc" "ODBC" nil 0)
@@ -1102,6 +1106,7 @@
     ("whos" "who's" nil 0)
     ("whove" "who've" nil 0)
     ("whta" "what" nil 0)
+    ("widnow" "window" nil 1)
     ("wief" "wife" nil 0)
     ("wierd" "weird" nil 0)
     ("wihch" "which" nil 0)

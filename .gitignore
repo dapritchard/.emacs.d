@@ -13,6 +13,7 @@ var
 
 # files
 .cache/treemacs-persist
+.cache/treemacs-persist-at-last-error
 init.el
 network-security.data
 org-clock-save.el
