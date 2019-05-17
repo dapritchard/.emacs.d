@@ -275,6 +275,20 @@ else if it sticks (i.e. if I don't find myself missing the keys).
   (global-set-key [remap just-one-space] 'cycle-spacing)
   (global-set-key (kbd "C-x \\") #'align-regexp)
 
+  ;; swap C-b with C-r and C-M-b with C-M-r.  The reason for doing this is that
+  ;; `backward-char', `backward-word' and `backward-sexp' are obviously highly
+  ;; used functions that are located in a difficult position in the keyboard, and
+  ;; I don't use `isearch-backward' and `isearch-backward-regexp' at all since I
+  ;; use `swiper' instead (I do sometimes use `move-to-window-line-top-bottom',
+  ;; but that is still easy to reach).
+  (global-set-key (kbd "C-r") 'backward-char)
+  (global-set-key (kbd "M-r") 'backward-word)
+  (global-set-key (kbd "C-M-r") 'backward-sexp)
+  ;; and now swap the other functions back
+  (global-set-key (kbd "C-b") 'isearch-backward)
+  (global-set-key (kbd "M-b") 'move-to-window-line-top-bottom)
+  (global-set-key (kbd "C-M-b") 'isearch-backward-regexp)
+
   ;; crux shortcuts.  See https://github.com/bbatsov/crux
   (global-set-key (kbd "C-c I") #'crux-find-user-init-file)
   (global-set-key [remap kill-whole-line] #'crux-kill-whole-line)  ; places point at the correct indentation after deletion
