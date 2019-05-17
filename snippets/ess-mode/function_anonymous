@@ -2,4 +2,4 @@
 # name: function (anonymous)
 # key: fu
 # --
-function(${args}) $0
+function($1) $0

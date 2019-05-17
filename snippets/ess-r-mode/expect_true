@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: expect_true
+# key: qextr
+# --
+expect_true(${actual})

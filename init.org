@@ -337,16 +337,26 @@ https://emacs.stackexchange.com/q/9631/15552.
 
 *** Evil mode
 
+Useful resources (the first one is insanely good):
+- https://github.com/noctuid/evil-guide
+
 See
 http://puntoblogspot.blogspot.com/2014/01/evil-exact-amount-of-vim-in-emacs-but.html
-for the commands used below to turn off Vim commands in insert mode.
+for the commands used below to turn off Vim commands in insert mode.  Update
+[2019-05-13 Mon]: I now use the command described in
+https://github.com/noctuid/evil-guide#switching-between-evil-and-emacs to
+disable Vim keybindings in insert state.
 #+BEGIN_SRC emacs-lisp
-  (use-package evil
-    :config
-    (evil-mode 1)
-    ;; turn off Vim commands in insert mode
-    (setcdr evil-insert-state-map nil)
-    (define-key evil-insert-state-map [escape] 'evil-normal-state))
+    (use-package evil
+      :init
+      (setq evil-want-Y-yank-to-eol t)
+      (setq evil-disable-insert-state-bindings t)
+      :config
+      (evil-mode 1)
+      ;; ;; turn off Vim commands in insert mode
+      ;; (setcdr evil-insert-state-map nil)
+      ;; (define-key evil-insert-state-map [escape] 'evil-normal-state)
+      )
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
@@ -363,6 +373,15 @@ https://emacs.stackexchange.com/a/34214/15552
   (setq undo-tree-enable-undo-in-region nil)
   (define-key undo-tree-map (kbd "C-/") nil)
   (global-set-key (kbd "C-/") nil)
+#+END_SRC
+
+Add some modes to the list of modes that start out in Emacs state.
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'evil-emacs-state-modes 'dired-mode)
+  (add-to-list 'evil-emacs-state-modes 'help-mode)
+  (add-to-list 'evil-emacs-state-modes 'helpful-mode)
+  (add-to-list 'evil-emacs-state-modes 'ivy-occur-mode)
+  (add-to-list 'evil-emacs-state-modes 'special-mode)
 #+END_SRC
 
 
@@ -1555,7 +1574,7 @@ magit settings
 #+END_SRC
 
 
-** Emasc Speaks Statistics (ESS)
+** Emacs Speaks Statistics (ESS)
 
 Note: sometimes it helps to use =R-initialize-on-start= when the documentation
 isn't working.  See https://github.com/emacs-ess/ESS/issues/117.
@@ -1610,6 +1629,14 @@ package index.
   (use-package poly-R
     :ensure t)
 #+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (load "~/.emacs.d/lisp/ess-make-assertions-table-header.el")
+  (load "~/.emacs.d/lisp/ess-print-last-var.el")
+  (load "~/.emacs.d/lisp/print-table.el")
+#+END_SRC
+
+
 
 
 ** Comint

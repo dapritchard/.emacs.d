@@ -103,6 +103,8 @@
 
 (define-abbrev-table 'deadgrep-mode-abbrev-table '())
 
+(define-abbrev-table 'debugger-mode-abbrev-table '())
+
 (define-abbrev-table 'diff-mode-abbrev-table '())
 
 (define-abbrev-table 'doctex-mode-abbrev-table '())
@@ -454,6 +456,7 @@
     ("defendent" "defendant" nil 0)
     ("definately" "definitely" nil 0)
     ("definded" "defined" nil 0)
+    ("dento" "denote" nil 1)
     ("dependances" "dependencies" nil 0)
     ("deptartment" "department" nil 0)
     ("desicion" "decision" nil 0)
@@ -569,6 +572,7 @@
     ("firtile" "fertile" nil 1)
     ("firts" "first" nil 0)
     ("fixit" "fix it" nil 0)
+    ("fo" "of" nil 1)
     ("follwo" "follow" nil 0)
     ("follwoing" "following" nil 0)
     ("foloowing" "following" nil 0)
@@ -641,7 +645,7 @@
     ("howerver" "however" nil 0)
     ("hsa" "has" nil 0)
     ("hsi" "his" nil 0)
-    ("hte" "the" nil 0)
+    ("hte" "the" nil 1)
     ("htere" "there" nil 0)
     ("htese" "these" nil 0)
     ("htey" "they" nil 0)
@@ -764,6 +768,7 @@
     ("neccessary" "necessary" nil 0)
     ("necesarily" "necessarily" nil 0)
     ("necesary" "necessary" nil 0)
+    ("neeed" "need" nil 1)
     ("negotiaing" "negotiating" nil 0)
     ("nkow" "know" nil 0)
     ("nothign" "nothing" nil 0)
@@ -1002,13 +1007,13 @@
     ("suprisingly" "surprisingly" nil 0)
     ("swiming" "swimming" nil 0)
     ("tahn" "than" nil 0)
-    ("taht" "that" nil 0)
+    ("taht" "that" nil 1)
     ("talekd" "talked" nil 0)
     ("talior" "tailor" nil 0)
     ("talkign" "talking" nil 0)
     ("tath" "that" nil 0)
     ("tecnical" "technical" nil 0)
-    ("teh" "the" nil 6)
+    ("teh" "the" nil 10)
     ("tehy" "they" nil 0)
     ("terminiated" "terminated" nil 0)
     ("termoil" "turmoil" nil 0)
@@ -1101,6 +1106,7 @@
     ("wierd" "weird" nil 0)
     ("wihch" "which" nil 0)
     ("wiht" "with" nil 0)
+    ("wihtout" "without" nil 1)
     ("willbe" "will be" nil 0)
     ("windoes" "windows" nil 0)
     ("witha" "with a" nil 0)
@@ -1336,6 +1342,8 @@
 
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
 
+(define-abbrev-table 'tar-mode-abbrev-table '())
+
 (define-abbrev-table 'term-mode-abbrev-table '())
 
 (define-abbrev-table 'tex-mode-abbrev-table '())
@@ -1363,6 +1371,8 @@
 (define-abbrev-table 'vc-mtn-log-view-mode-abbrev-table '())
 
 (define-abbrev-table 'vc-svn-log-view-mode-abbrev-table '())
+
+(define-abbrev-table 'woman-mode-abbrev-table '())
 
 (define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
 
