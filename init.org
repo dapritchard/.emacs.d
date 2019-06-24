@@ -403,6 +403,19 @@ Add some modes to the list of modes that start out in Emacs state.
   (add-to-list 'evil-emacs-state-modes 'special-mode)
 #+END_SRC
 
+See the first link for the general details, and the second link for the default
+keybindings:
+* https://github.com/gabesoft/evil-mc
+* https://github.com/gabesoft/evil-mc/blob/master/evil-mc.el
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-mc)
+#+END_SRC
+
+https://github.com/Dewdrops/evil-exchange
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-exchange)
+#+END_SRC
+
 https://github.com/syl20bnr/evil-iedit-state
 #+BEGIN_SRC emacs-lisp
   (use-package evil-iedit-state
