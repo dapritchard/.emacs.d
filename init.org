@@ -390,8 +390,8 @@ https://www.reddit.com/r/emacs/comments/85t95p/undo_tree_unrecognized_entry_in_u
 https://emacs.stackexchange.com/a/34214/15552
 #+BEGIN_SRC emacs-lisp
   (setq undo-tree-enable-undo-in-region nil)
-  (define-key undo-tree-map (kbd "C-/") nil)
-  (global-set-key (kbd "C-/") nil)
+  ;; (define-key undo-tree-map (kbd "C-/") nil)
+  ;; (global-set-key (kbd "C-/") nil)
 #+END_SRC
 
 Add some modes to the list of modes that start out in Emacs state.
@@ -403,7 +403,14 @@ Add some modes to the list of modes that start out in Emacs state.
   (add-to-list 'evil-emacs-state-modes 'special-mode)
 #+END_SRC
 
-
+https://github.com/syl20bnr/evil-iedit-state
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-iedit-state
+    :general
+    ('insert "C-M-i" 'evil-iedit-state/iedit-mode)  ;; TODO: can this be changed to go straight to iedit-insert state?
+    ('normal "C-M-i" 'evil-iedit-state/iedit-mode)
+    ('emacs  "C-M-i" 'iedit-mode))
+#+END_SRC
 
 
 ** Appearance
@@ -1252,13 +1259,14 @@ https://github.com/otijhuis/emacs.d/blob/master/config/hydra-settings.el
 
 ** iedit
 
+see https://github.com/victorhge/iedit.  Note that I now use iedit through
+=evil-iedit-state=.
 #+BEGIN_SRC emacs-lisp
-;; see https://github.com/victorhge/iedit
-(use-package iedit
-  :bind
-  (("C-;" . nil)
-   ("C-M-i" . iedit-mode)))
-;; (global-set-key (kbd "C-M-i") 'iedit-mode)
+  (use-package iedit
+    :bind
+    (("C-;" . nil)
+     ;; ("C-M-i" . iedit-mode)
+     ))
 #+END_SRC
 
 
