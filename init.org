@@ -366,16 +366,34 @@ for the commands used below to turn off Vim commands in insert mode.  Update
 https://github.com/noctuid/evil-guide#switching-between-evil-and-emacs to
 disable Vim keybindings in insert state.
 #+BEGIN_SRC emacs-lisp
-    (use-package evil
-      :init
-      (setq evil-want-Y-yank-to-eol t)
-      (setq evil-disable-insert-state-bindings t)
-      :config
-      (evil-mode 1)
-      ;; ;; turn off Vim commands in insert mode
-      ;; (setcdr evil-insert-state-map nil)
-      ;; (define-key evil-insert-state-map [escape] 'evil-normal-state)
-      )
+  (use-package evil
+    :init
+    (setq evil-want-Y-yank-to-eol t)
+    (setq evil-disable-insert-state-bindings t)
+    :config
+    (evil-mode 1)
+    ;; ;; turn off Vim commands in insert mode
+    ;; (setcdr evil-insert-state-map nil)
+    ;; (define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+    :general
+
+    ;; I prefer the Emacs versions of these commands to the Vim variants
+    ('normal "e" 'forward-word)
+    ('normal "E" 'sp-forward-sexp)
+    ('normal "w" 'forward-to-word)
+    ('normal "b" 'backward-word)
+    ('normal "B" 'sp-backward-sexp)
+    ('normal "ge" 'backward-to-word)
+
+    ;; using `g_' is too inconvenient for my tastes, and it makes sense to pair
+    ;; this command with (i.e. sit it next to) `0'
+    ('normal "9" 'evil-last-non-blank)
+
+    ;; I use swiper for search so let's rebind `evil-search-backward' and
+    ;; `evil-search-forward' to avy commands.  TODO: doesn't work for visual mode
+    ('normal "?" 'avy-goto-char-1)
+    ('normal "/" 'avy-goto-char-2))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
@@ -413,7 +431,10 @@ keybindings:
 
 https://github.com/Dewdrops/evil-exchange
 #+BEGIN_SRC emacs-lisp
-  (use-package evil-exchange)
+  (use-package evil-exchange
+    :general
+    ('normal "gx" 'evil-exchange)
+    ('normal "gX" 'evil-exchange-cancel))
 #+END_SRC
 
 https://github.com/syl20bnr/evil-iedit-state
@@ -867,7 +888,7 @@ version of these commands.
 #+BEGIN_SRC emacs-lisp
   (use-package avy
     :config
-    (global-set-key (kbd "C-;") 'avy-goto-char)
+    ;; (global-set-key (kbd "C-;") 'avy-goto-char)
     (global-set-key (kbd "C-'") 'avy-goto-char-2)
     (global-set-key (kbd "M-g M-g") 'avy-goto-line)
     (global-set-key (kbd "M-g e") 'avy-goto-word-0)
@@ -910,7 +931,6 @@ Adapted from https://github.com/joodland/bm.
     :init
     ;; restore on load (even before you require bm)
     (setq bm-restore-repository-on-load t)
-
 
     :config
     ;; Allow cross-buffer 'next'
@@ -1085,7 +1105,7 @@ https://github.com/Fuco1/.emacs.d/blob/master/files/smartparens.el
   (define-key smartparens-mode-map (kbd "M-g M-b") 'sp-backward-slurp-sexp)
   (define-key smartparens-mode-map (kbd "M-g M-h") 'sp-backward-barf-sexp)
 
-  ;; (define-key smartparens-mode-map (kbd "M-D") 'sp-splice-sexp)
+  (define-key smartparens-mode-map (kbd "M-g M-s") 'sp-splice-sexp)
   ;; (define-key smartparens-mode-map (kbd "C-M-<delete>") 'sp-splice-sexp-killing-forward)
   ;; (define-key smartparens-mode-map (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
   ;; (define-key smartparens-mode-map (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-around)
