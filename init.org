@@ -249,6 +249,11 @@ Basic configurations
 
 ** Keybindings
 
+see https://github.com/noctuid/general.el
+#+BEGIN_SRC emacs-lisp
+  (use-package general)
+#+END_SRC
+
 Remove the prefix key keybindings.  From
 http://pragmaticemacs.com/emacs/use-your-digits-and-a-personal-key-map-for-super-shortcuts/.
 You can still use =C-M-1=, =C-M-2=, etc. for this purpose.  Move this somewhere

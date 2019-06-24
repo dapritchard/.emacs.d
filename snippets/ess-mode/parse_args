@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # key: parse_args
-# name: Parsing command-line arguments
+# name: parsing command-line arguments
 # --
 # remove a prefix \`prefix\` from the start of a string \`str\`
 extract_arg <- function(str, prefix) {
@@ -29,7 +29,7 @@ if (startsWith(a, "${1:CLI argument expecting an integer such as --myarg=}")) {
     stopifnot(!is.na($6))
   }
   else if (startsWith(a, "${7:CLI argument expecting a string}")) {
-    $8 <- as.numeric(extract_arg(a, "$7"))
+    $8 <- extract_arg(a, "$7")
   }
   else {
     stop("unknown argument:  ", a)

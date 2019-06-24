@@ -33,6 +33,7 @@
         evil-delete
         evil-forward-char
         evil-forward-word-end
+        evil-insert
         evil-next-line
         evil-normal-state
         evil-previous-line
@@ -86,6 +87,7 @@
         ess-r-devtools-load-package
         ess-set-style
         evil-emacs-state
+        evil-exit-emacs-state
         evil-scroll-down
         evil-scroll-page-down
         eyebrowse-switch-to-window-config-1

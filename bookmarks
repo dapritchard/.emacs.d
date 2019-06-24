@@ -1,33 +1,19 @@
-;;;; Emacs Bookmark Format Version 1 ;;;;
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("(elisp) List Variables"
- (front-context-string . "ns modify lists ")
- (rear-context-string . "\n\n   Two functio")
- (position . 271211)
+(("(elisp) 2019-05-18 generator"
+ (front-context-string . "\n11.6 Generators")
+ (rear-context-string . "trol Structures\n")
+ (position . 476194)
  (filename . "/usr/share/info/elisp")
- (info-node . "List Variables")
+ (info-node . "Generators")
  (handler . Info-bookmark-jump))
-("(elisp) Strings and Characters"
- (front-context-string . "\n4 Strings and C")
- (rear-context-string . "mbers,  Up: Top\n")
- (position . 203163)
+("(elisp) 2019-05-17 control structures"
+ (front-context-string . "\n11 Control Stru")
+ (rear-context-string . "ation,  Up: Top\n")
+ (position . 432244)
  (filename . "/usr/share/info/elisp")
- (info-node . "Strings and Characters")
- (handler . Info-bookmark-jump))
-("(elisp) Numbers"
- (front-context-string . "\n3 Numbers\n*****")
- (rear-context-string . "Types,  Up: Top\n")
- (position . 168712)
- (filename . "/usr/share/info/elisp")
- (info-node . "Numbers")
- (handler . Info-bookmark-jump))
-("(elisp) Array Type"
- (front-context-string . "\n2.3.7 Array Typ")
- (rear-context-string . "ogramming Types\n")
- (position . 126849)
- (filename . "/usr/share/info/elisp")
- (info-node . "Array Type")
+ (info-node . "Control Structures")
  (handler . Info-bookmark-jump))
 )
