@@ -30,6 +30,7 @@
         ess-smart-comma
         evil-backward-char
         evil-backward-word-begin
+        evil-change
         evil-delete
         evil-forward-char
         evil-forward-word-end
@@ -92,6 +93,7 @@
         evil-scroll-page-down
         eyebrowse-switch-to-window-config-1
         eyebrowse-switch-to-window-config-2
+        eyebrowse-switch-to-window-config-3
         hydra-multiple-cursors/mc/mark-all-words-like-this-in-defun-and-exit
         hydra-multiple-cursors/mc/mark-next-like-this
         hydra-multiple-cursors/mc/mark-previous-like-this
@@ -103,5 +105,6 @@
         inferior-ess-send-input
         scroll-other-window
         scroll-up-line
+        sp-kill-hybrid-sexp
         wdired-finish-edit
         ))

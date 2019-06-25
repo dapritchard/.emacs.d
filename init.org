@@ -165,12 +165,13 @@ Basic configurations
   ;; inserting text deletes selected text
   (delete-selection-mode t)
 
-  ;; delete trailing whitespace when saving files
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  ;; ;; delete trailing whitespace when saving files.  Note: switch to ws-butler?
+  ;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
   ;; see https://github.com/lewang/ws-butler
   (use-package ws-butler
-    :ensure t)
+    :config
+    (add-hook 'prog-mode-hook #'ws-butler-mode))
 
   ;; disable graphical toolbar at the top of the screen
   (tool-bar-mode -1)
@@ -279,6 +280,7 @@ else if it sticks (i.e. if I don't find myself missing the keys).
   (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
   (global-set-key [remap just-one-space] 'cycle-spacing)
   (global-set-key (kbd "C-x \\") #'align-regexp)
+  (global-set-key (kbd "C-x C-a") #'find-dired)
 
   ;; swap C-b with C-r and C-M-b with C-M-r.  The reason for doing this is that
   ;; `backward-char', `backward-word' and `backward-sexp' are obviously highly
@@ -1833,9 +1835,11 @@ Python settings
   (use-package elpy
     :config
     (elpy-enable)
-    (setq elpy-rpc-python-command "/usr/bin/python3")
-    (setq python-shell-interpreter (expand-file-name "~/.local/bin/ipython")
+    (setq elpy-rpc-python-command (executable-find "python3")
+          python-shell-interpreter (executable-find "ipython")
           python-shell-interpreter-args "-i --simple-prompt"))
+
+  (define-key elpy-mode-map (kbd "C-j") #'elpy-shell-send-statement-and-step)
 
   ;; ;; enable autopep8 formatting on save
   ;; (require 'py-autopep8)

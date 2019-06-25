@@ -57,6 +57,8 @@
 
 (define-abbrev-table 'TeX-output-mode-abbrev-table '())
 
+(define-abbrev-table 'TeX-special-mode-abbrev-table '())
+
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
 (define-abbrev-table 'autoconf-mode-abbrev-table '())
@@ -570,6 +572,7 @@
     ("familar" "familiar" nil 0)
     ("familliar" "familiar" nil 0)
     ("fammiliar" "familiar" nil 0)
+    ("fasle" "false" nil 1)
     ("feild" "field" nil 0)
     ("feilds" "fields" nil 0)
     ("fianlly" "finally" nil 0)
@@ -655,7 +658,7 @@
     ("howerver" "however" nil 0)
     ("hsa" "has" nil 0)
     ("hsi" "his" nil 0)
-    ("hte" "the" nil 1)
+    ("hte" "the" nil 2)
     ("htere" "there" nil 0)
     ("htese" "these" nil 0)
     ("htey" "they" nil 0)
@@ -1079,6 +1082,7 @@
     ("truley" "truly" nil 0)
     ("tryed" "tried" nil 0)
     ("tthe" "the" nil 0)
+    ("ture" "true" nil 1)
     ("tyhat" "that" nil 0)
     ("tyhe" "the" nil 0)
     ("udnerstand" "understand" nil 0)
@@ -1105,7 +1109,7 @@
     ("wernt" "weren't" nil 0)
     ("werre" "were" nil 0)
     ("wethee" "whether" nil 0)
-    ("whcih" "which" nil 0)
+    ("whcih" "which" nil 1)
     ("wherre" "where" nil 0)
     ("whic" "which" nil 0)
     ("whihc" "which" nil 0)
@@ -1116,7 +1120,7 @@
     ("wief" "wife" nil 0)
     ("wierd" "weird" nil 0)
     ("wihch" "which" nil 0)
-    ("wiht" "with" nil 0)
+    ("wiht" "with" nil 1)
     ("wihtout" "without" nil 1)
     ("willbe" "will be" nil 0)
     ("windoes" "windows" nil 0)
