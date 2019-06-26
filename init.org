@@ -428,7 +428,9 @@ keybindings:
 * https://github.com/gabesoft/evil-mc
 * https://github.com/gabesoft/evil-mc/blob/master/evil-mc.el
 #+BEGIN_SRC emacs-lisp
-  (use-package evil-mc)
+  (use-package evil-mc
+    :config
+    (global-evil-mc-mode  1))
 #+END_SRC
 
 https://github.com/Dewdrops/evil-exchange

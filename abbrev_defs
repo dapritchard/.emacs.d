@@ -63,9 +63,7 @@
 
 (define-abbrev-table 'autoconf-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'awk-mode-abbrev-table '())
 
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
 
@@ -77,13 +75,9 @@
 
 (define-abbrev-table 'browse-kill-ring-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c++-mode-abbrev-table '())
 
-(define-abbrev-table 'c-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c-mode-abbrev-table '())
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -534,6 +528,7 @@
     ("doubel" "double" nil 2)
     ("driveing" "driving" nil 0)
     ("drnik" "drink" nil 0)
+    ("dtaes" "dates" nil 1)
     ("eclair" "eclair" nil 0)
     ("efel" "feel" nil 0)
     ("effecient" "efficient" nil 0)
@@ -604,7 +599,7 @@
     ("frmo" "from" nil 0)
     ("fromt he" "from the" nil 0)
     ("fromthe" "from the" nil 0)
-    ("funciton" "function" nil 3)
+    ("funciton" "function" nil 2)
     ("funcitons" "functions" nil 1)
     ("functinos" "functions" nil 1)
     ("functoin" "function" nil 5)
@@ -736,7 +731,7 @@
     ("lastyear" "last year" nil 0)
     ("learnign" "learning" nil 0)
     ("legnth" "length" nil 3)
-    ("lenght" "length" nil 1)
+    ("lenght" "length" nil 2)
     ("levle" "level" nil 0)
     ("libary" "library" nil 0)
     ("librarry" "library" nil 0)
@@ -1193,9 +1188,7 @@
 
 (define-abbrev-table 'ivy-occur-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'java-mode-abbrev-table '())
 
 (define-abbrev-table 'js-jsx-mode-abbrev-table '())
 
@@ -1265,9 +1258,7 @@
 
 (define-abbrev-table 'neotree-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'objc-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
@@ -1287,9 +1278,7 @@
 
 (define-abbrev-table 'pdf-outline-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'pike-mode-abbrev-table '())
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
@@ -1398,3 +1387,4 @@
 (define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
 
 (define-abbrev-table 'yaml-mode-abbrev-table '())
+
