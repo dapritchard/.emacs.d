@@ -243,6 +243,10 @@ Basic configurations
 
   ;; auto revert mode
   (global-auto-revert-mode 1)
+  ;; prevent auto revert from printing messages to the minibuffer.  This is
+  ;; especially annoying when e.g. compiling LaTeX files because the message gets
+  ;; in the way of the compilation prompts
+  (setq auto-revert-verbose nil)
   ;; auto refresh dired when file changes
   (add-hook 'dired-mode-hook 'auto-revert-mode)
 #+END_SRC
@@ -380,6 +384,9 @@ disable Vim keybindings in insert state.
 
     :general
 
+    ;; use tab for indentation in visual mode (replaces `evil-jump-forward')
+    ('visual "TAB" 'indent-for-tab-command)
+
     ;; I prefer the Emacs versions of these commands to the Vim variants
     ('normal "e" 'forward-word)
     ('normal "E" 'sp-forward-sexp)
@@ -390,7 +397,10 @@ disable Vim keybindings in insert state.
 
     ;; using `g_' is too inconvenient for my tastes, and it makes sense to pair
     ;; this command with (i.e. sit it next to) `0'
-    ('normal "9" 'evil-last-non-blank)
+    ('motion "9" 'evil-last-non-blank)
+
+    ;; use `browse-kill-ring' in the evil states as well
+    ('motion "M-y" 'browse-kill-ring)
 
     ;; I use swiper for search so let's rebind `evil-search-backward' and
     ;; `evil-search-forward' to avy commands.  TODO: doesn't work for visual mode
@@ -1062,7 +1072,8 @@ look into =sp-rewrap-sexp=.
     (custom-set-variables
      ;; '(sp-base-key-bindings 'sp)
      '(sp-override-key-bindings
-       '(("M-<backspace>" . nil)))))
+       '(("M-<backspace>" . nil)
+         ("C-M-e" . nil)))))
 
   (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
   (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
@@ -1092,10 +1103,6 @@ https://github.com/Fuco1/.emacs.d/blob/master/files/smartparens.el
   ;; override `transpose-sexps`
   (define-key smartparens-mode-map (kbd "C-M-t") 'sp-transpose-sexp)
 
-  ;; ;; these don't seem to be commands any more
-  ;; (define-key smartparens-mode-map (kbd "C-M-n") 'sp-forward-hybrid-sexp)
-  ;; (define-key smartparens-mode-map (kbd "C-M-p") 'sp-backward-hybrid-sexp)
-
   (define-key smartparens-mode-map (kbd "M-g k") 'sp-kill-sexp)
   (define-key smartparens-mode-map (kbd "C-M-w") 'sp-copy-sexp)
 
@@ -1109,7 +1116,9 @@ https://github.com/Fuco1/.emacs.d/blob/master/files/smartparens.el
   (define-key smartparens-mode-map (kbd "M-g M-b") 'sp-backward-slurp-sexp)
   (define-key smartparens-mode-map (kbd "M-g M-h") 'sp-backward-barf-sexp)
 
-  (define-key smartparens-mode-map (kbd "M-g M-s") 'sp-splice-sexp)
+  ;; ;; I don't see how `sp-splice-sexp' adds any value to `sp-unwrap-sexp' and
+  ;; ;; `sp-backward-unwrap-sexp'?
+  ;; (define-key smartparens-mode-map (kbd "M-g M-s") 'sp-splice-sexp)
   ;; (define-key smartparens-mode-map (kbd "C-M-<delete>") 'sp-splice-sexp-killing-forward)
   ;; (define-key smartparens-mode-map (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
   ;; (define-key smartparens-mode-map (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-around)
@@ -1123,6 +1132,9 @@ https://github.com/Fuco1/.emacs.d/blob/master/files/smartparens.el
 
   ;; (define-key smartparens-mode-map (kbd "C-\"") 'sp-change-inner)
   ;; (define-key smartparens-mode-map (kbd "M-i") 'sp-change-enclosing)
+
+  (define-key smartparens-mode-map (kbd "M-g M-s") 'sp-split-sexp)
+  (define-key smartparens-mode-map (kbd "M-g s") 'sp-join-sexp)
 #+END_SRC
 
 
