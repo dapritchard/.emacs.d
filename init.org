@@ -437,10 +437,16 @@ See the first link for the general details, and the second link for the default
 keybindings:
 * https://github.com/gabesoft/evil-mc
 * https://github.com/gabesoft/evil-mc/blob/master/evil-mc.el
+
+Note that the changing of the cursor to the =|= in insert mode does not work for
+macOS according to https://github.com/gabesoft/evil-mc/issues, so in this case
+we turn off this feature.
 #+BEGIN_SRC emacs-lisp
   (use-package evil-mc
     :config
-    (global-evil-mc-mode  1))
+    (global-evil-mc-mode  1)
+    (when (eq system-type 'darwin)
+      (setq evil-mc-enable-bar-cursor nil)))
 #+END_SRC
 
 https://github.com/Dewdrops/evil-exchange
@@ -458,6 +464,13 @@ https://github.com/syl20bnr/evil-iedit-state
     ('insert "C-M-i" 'evil-iedit-state/iedit-mode)  ;; TODO: can this be changed to go straight to iedit-insert state?
     ('normal "C-M-i" 'evil-iedit-state/iedit-mode)
     ('emacs  "C-M-i" 'iedit-mode))
+#+END_SRC
+
+https://github.com/expez/evil-smartparens
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-smartparens
+    :config
+    (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
 #+END_SRC
 
 
@@ -1452,6 +1465,7 @@ TODO:
 (setq enable-recursive-minibuffers t)
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-M-s") 'swiper-all)
+(global-set-key (kbd "M-s M-s") 'swiper-all)  ;; C-M-s doesn't work on all of my systems
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)

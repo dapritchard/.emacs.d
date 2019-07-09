@@ -63,7 +63,9 @@
 
 (define-abbrev-table 'autoconf-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table '())
+(define-abbrev-table 'awk-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
 
@@ -75,9 +77,13 @@
 
 (define-abbrev-table 'browse-kill-ring-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table '())
+(define-abbrev-table 'c++-mode-abbrev-table
+  '(
+   ))
 
-(define-abbrev-table 'c-mode-abbrev-table '())
+(define-abbrev-table 'c-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -203,6 +209,8 @@
 
 (define-abbrev-table 'git-commit-elisp-text-mode-abbrev-table '())
 
+(define-abbrev-table 'git-rebase-mode-abbrev-table '())
+
 (define-abbrev-table 'gitconfig-mode-abbrev-table '())
 
 (define-abbrev-table 'gitignore-mode-abbrev-table '())
@@ -323,7 +331,7 @@
     ("becauseyou" "because you" nil 0)
     ("becomeing" "becoming" nil 0)
     ("becomming" "becoming" nil 0)
-    ("becuase" "because" nil 0)
+    ("becuase" "because" nil 1)
     ("becuse" "because" nil 0)
     ("befoer" "before" nil 0)
     ("beggining" "beginning" nil 1)
@@ -374,7 +382,7 @@
     ("charecter" "character" nil 0)
     ("charector" "character" nil 0)
     ("cheif" "chief" nil 0)
-    ("chekc" "check" nil 0)
+    ("chekc" "check" nil 1)
     ("chnage" "change" nil 0)
     ("cieling" "ceiling" nil 0)
     ("circut" "circuit" nil 0)
@@ -659,7 +667,7 @@
     ("htey" "they" nil 0)
     ("hting" "thing" nil 0)
     ("htink" "think" nil 0)
-    ("htis" "this" nil 0)
+    ("htis" "this" nil 1)
     ("htp:" "http:" nil 0)
     ("http:\\\\" "http:// class=" string 0)
     ("httpL" "http: class=" string 0)
@@ -703,7 +711,7 @@
     ("invitaion" "invitation" nil 0)
     ("invstigated" "investigated" nil 0)
     ("inwhich" "in which" nil 0)
-    ("isnt" "isn't" nil 0)
+    ("isnt" "isn't" nil 2)
     ("isthe" "is the" nil 0)
     ("itis" "it is" nil 0)
     ("ititial" "initial" nil 0)
@@ -731,7 +739,7 @@
     ("lastyear" "last year" nil 0)
     ("learnign" "learning" nil 0)
     ("legnth" "length" nil 3)
-    ("lenght" "length" nil 2)
+    ("lenght" "length" nil 3)
     ("levle" "level" nil 0)
     ("libary" "library" nil 0)
     ("librarry" "library" nil 0)
@@ -756,7 +764,7 @@
     ("marraige" "marriage" nil 0)
     ("memeber" "member" nil 0)
     ("merchent" "merchant" nil 0)
-    ("mesage" "message" nil 0)
+    ("mesage" "message" nil 1)
     ("mesages" "messages" nil 0)
     ("mispell" "misspell" nil 0)
     ("mispelling" "misspelling" nil 0)
@@ -769,7 +777,7 @@
     ("mroe" "more" nil 0)
     ("mysefl" "myself" nil 0)
     ("myu" "my" nil 0)
-    ("naive" "naive" nil 4)
+    ("naive" "naive" nil 3)
     ("necassarily" "necessarily" nil 0)
     ("necassary" "necessary" nil 0)
     ("neccessarily" "necessarily" nil 0)
@@ -786,7 +794,7 @@
     ("obediant" "obedient" nil 0)
     ("ocasion" "occasion" nil 0)
     ("occassion" "occasion" nil 0)
-    ("occured" "occurred" nil 1)
+    ("occured" "occurred" nil 2)
     ("occurence" "occurrence" nil 0)
     ("occurences" "occurrences" nil 1)
     ("occurrance" "occurrence" nil 0)
@@ -888,7 +896,7 @@
     ("reccomend" "recommend" nil 0)
     ("reccommend" "recommend" nil 0)
     ("receieve" "receive" nil 0)
-    ("recieve" "receive" nil 0)
+    ("recieve" "receive" nil 4)
     ("recieved" "received" nil 0)
     ("recieving" "receiving" nil 0)
     ("recomend" "recommend" nil 0)
@@ -1002,7 +1010,7 @@
     ("studnet" "student" nil 0)
     ("sublanguange" "sublanguage" nil 0)
     ("substitued" "substituted" nil 0)
-    ("successfull" "successful" nil 0)
+    ("successfull" "successful" nil 1)
     ("successfuly" "successfully" nil 0)
     ("successfulyl" "successfully" nil 0)
     ("sucess" "success" nil 0)
@@ -1258,7 +1266,9 @@
 
 (define-abbrev-table 'neotree-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table '())
+(define-abbrev-table 'objc-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
@@ -1278,7 +1288,9 @@
 
 (define-abbrev-table 'pdf-outline-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table '())
+(define-abbrev-table 'pike-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
