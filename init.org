@@ -1622,6 +1622,19 @@ Note: use =C-c C-w ,= to name the workspaces.
 
 
 
+** winner mode
+
+Undo and redo changes to window configurations, bound to C-c left and C-c right
+by default.
+#+BEGIN_SRC emacs-lisp
+  (use-package winner
+    :config
+    (winner-mode))
+#+END_SRC
+
+
+
+
 ** tags
 
 Currently I am using =ggtags= to handle tagging.  FIXME: not working!!
