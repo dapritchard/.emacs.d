@@ -284,7 +284,7 @@ else if it sticks (i.e. if I don't find myself missing the keys).
   (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
   (global-set-key [remap just-one-space] 'cycle-spacing)
   (global-set-key (kbd "C-x \\") #'align-regexp)
-  (global-set-key (kbd "C-x C-a") #'find-dired)
+  ;; (global-set-key (kbd "C-x C-a") #'find-dired)  ;; conflicts with Slime use
 
   ;; swap C-b with C-r and C-M-b with C-M-r.  The reason for doing this is that
   ;; `backward-char', `backward-word' and `backward-sexp' are obviously highly
@@ -478,9 +478,19 @@ https://github.com/expez/evil-smartparens
 
 *** Font size
 
+Set default font size. Specifies font height in units of 1/10 pt.  When we are
+using a higher-resolution screen then set the font size a little larger to
+compensate.
+
+Note however that this is being crudely measured in terms of the pixel width,
+which could presumably be due to a large monitor with low resolution, in which
+case we wouldn't want to increase the font size?  Is there a better way to do
+this?
 #+BEGIN_SRC emacs-lisp
-;; set default font size. Specifies font height in units of 1/10 pt
-(set-face-attribute 'default nil :height 110)
+  (if (and (window-system)
+           (> (x-display-pixel-width) 2000))
+      (set-face-attribute 'default nil :height 120)
+    (set-face-attribute 'default nil :height 110))
 #+END_SRC
 
 
@@ -1382,6 +1392,9 @@ Taken from https://github.com/otijhuis/emacs.d/blob/master/config/hydra-settings
     ("," er/contract-region "Contract region" :exit nil)
     ("#" er/mark-clj-set-literal "Clj set")
     )
+
+  ;; bind to "e" for "expand-region"
+  (general-define-key "C-M-e" 'hydra-mark/body)
 #+END_SRC
 
 
