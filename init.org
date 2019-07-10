@@ -384,8 +384,11 @@ disable Vim keybindings in insert state.
 
     :general
 
-    ;; use tab for indentation in visual mode (replaces `evil-jump-forward')
-    ('visual "TAB" 'indent-for-tab-command)
+    ;; bind the usual Emacs indentation command to tab while in the evil states,
+    ;; and move the `evil-jump-forward' command that was previously bound to tab
+    ;; over to the "=" key (i.e. where `evil-indent' is bound by default)
+    ('motion "TAB" 'indent-for-tab-command)
+    ('normal "=" 'evil-jump-forward)
 
     ;; I prefer the Emacs versions of these commands to the Vim variants
     ('normal "e" 'forward-word)
@@ -402,10 +405,9 @@ disable Vim keybindings in insert state.
     ;; use `browse-kill-ring' in the evil states as well
     ('motion "M-y" 'browse-kill-ring)
 
-    ;; I use swiper for search so let's rebind `evil-search-backward' and
-    ;; `evil-search-forward' to avy commands.  TODO: doesn't work for visual mode
-    ('normal "?" 'avy-goto-char-1)
-    ('normal "/" 'avy-goto-char-2))
+    ;; rebind `evil-search-backward' and `evil-search-forward' to avy commands
+    ('motion "?" 'avy-goto-char-1)
+    ('motion "/" 'avy-goto-char-2))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
