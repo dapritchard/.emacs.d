@@ -1372,7 +1372,10 @@
 
 (define-abbrev-table 'tex-shell-abbrev-table '())
 
-(define-abbrev-table 'text-mode-abbrev-table '())
+(define-abbrev-table 'text-mode-abbrev-table
+  '(
+    ("explicitely" "explicitly" nil 0)
+   ))
 
 (define-abbrev-table 'treemacs-mode-abbrev-table '())
 

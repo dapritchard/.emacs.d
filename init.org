@@ -100,10 +100,11 @@ file.  This is what is done in the following code block.
 Use the following commands in the shell to set the macOS keyboard repeat and
 delay settings beyond what is available in the GUI interface (taken from
 https://gist.github.com/hofmannsven/ff21749b0e6afc50da458bebbd9989c5).
-#+BEGIN_SRC sh :exports none
+#+BEGIN_SRC sh :tangle no
   defaults write -g InitialKeyRepeat -int 10  # normal minimum is 15 (225 ms)
-  defaults write -g KeyRepeat -int 2  # normal minimum is 2 (30 ms)
+  defaults write -g KeyRepeat -int 1.25  # normal minimum is 2 (30 ms)
 #+END_SRC
+
 
 
 
