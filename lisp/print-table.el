@@ -90,5 +90,4 @@ function is called."
     (lambda (field-entries)
       (assert (eq (length field-entries) len-col-positions))
       (assert (not (member nil (mapcar #'stringp field-entries))))
-      (dp-print-row field-entries start-col-positions nchar-padding)
-      )))
+      (dp-print-row field-entries start-col-positions nchar-padding))))

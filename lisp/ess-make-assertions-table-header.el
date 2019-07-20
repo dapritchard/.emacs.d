@@ -36,19 +36,23 @@ argument of the function call."
 
   (defun throw-if-eol ()
     (when (eolp)
-      (error "reached the end of the line without finding two function arguments")))
+      (scan-error "reached the end of the line without finding function or remaining arguments")))
 
-  (let ((assertion-pos)
-        (actual-pos)
-        (target-pos)
-        (col-positions '()))
+  (defun throw-if-diff-lines (a b)
+    (if (eq (line-number-at-pos a) (line-number-at-pos b))
+        b
+      (error "the assertion statement is not all on the same line")))
+
+  (let ((positions '())
+        (col-positions '())
+        (is-sep-found))
 
     ;; move to the first non-whitespace character on the current line if the
     ;; line is nonempty, or the next non-whitespace character otherwise
     (move-to-column 0)
     (skip-chars-forward "[:space:]")
     (throw-if-eol)
-    (setq assertion-pos (point))
+    (setq positions (cons (point) positions))
     (setq col-positions (cons (current-column) col-positions))
 
     ;; find beginning of first argument
@@ -56,21 +60,29 @@ argument of the function call."
     (forward-char)
     (skip-chars-forward "[:space:]")
     (throw-if-eol)
-    (setq actual-pos (point))
+    (setq positions (cons (point) positions))
     (setq col-positions (cons (current-column) col-positions))
 
-    ;; find beginning of second argument
-    (dp-r-find-next-fcn-arg-separator)
-    (forward-char)
-    (skip-chars-forward "[:space:]")
-    (throw-if-eol)
-    (setq target-pos (point))
-    (setq col-positions (cons (current-column) col-positions))
+    ;; try to find the beginning of the second argument and use `is-sep-found'
+    ;; to signal whether or not there is a second argument
+    (condition-case nil
+        (progn
+          (dp-r-find-next-fcn-arg-separator)
+          (setq is-sep-found t))
+      (scan-error (setq is-sep-found nil)))
 
-    ;; ensure that all three positions are on the same line
-    (unless (and (eq (line-number-at-pos assertion-pos) (line-number-at-pos actual-pos))
-                 (eq (line-number-at-pos actual-pos) (line-number-at-pos target-pos)))
-      (error "the assertion statement is not all on the same line"))
+    ;; if we've found a function formal arguments separator (i.e. a comma), then
+    ;; find the start of the next argument and update `positions` and
+    ;; 'col-positions'
+    (when is-sep-found
+      (forward-char)
+      (skip-chars-forward "[:space:]")
+      (throw-if-eol)
+      (setq positions (cons (point) positions))
+      (setq col-positions (cons (current-column) col-positions)))
+
+    ;; ensure that all of the positions are on the same line
+    (seq-reduce #'throw-if-diff-lines (cdr positions) (car positions))
 
     (reverse col-positions)))
 
@@ -95,15 +107,15 @@ separators."
   (skip-chars-forward "[:space:]\n")
 
   ;; each iteration moves point across one sexp and any trailing whitespace.
-  ;; Note that `forward-sexp' throws an error if we reach the closing
-  ;; parenthesis of the function argument list, as desired.  The call to `eobp'
-  ;; is to protect against an infinite loop in the event of a malformed function
-  ;; or if the function is called outside of a function argument list.
+  ;; Note that `forward-sexp' throws a `scan-error' signal if we reach the
+  ;; closing parenthesis of the function argument list, as desired.  The call to
+  ;; `eobp' is to protect against an infinite loop in the event of a malformed
+  ;; function or if the function is called outside of a function argument list.
   (while (not (eq (char-after) ?,))
     (forward-sexp)
     (skip-chars-forward "[:space:]\n")
     (when (eobp)
-      (error "reached buffer end without finding the function end")))
+      (signal search-failed "reached buffer end without finding the function end")))
 
   ;; if we've made it here then an argument separator was found
   (point))
