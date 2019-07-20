@@ -28,6 +28,7 @@
         ess-roxy-newline-and-indent
         ess-smart-S-assign
         ess-smart-comma
+        ess-yank
         evil-backward-char
         evil-backward-word-begin
         evil-change
