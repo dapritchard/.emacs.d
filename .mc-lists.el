@@ -33,6 +33,8 @@
         evil-backward-word-begin
         evil-change
         evil-delete
+        evil-digit-argument-or-evil-beginning-of-line
+        evil-force-normal-state
         evil-forward-char
         evil-forward-word-end
         evil-insert
