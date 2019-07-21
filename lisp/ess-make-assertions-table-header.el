@@ -13,8 +13,15 @@ target value are on the same line."
   (let ((field-entries-1 '("# assertion" "actual" "target"))
         (field-entries-2 '("# ---------" "------" "------"))
         (col-positions (dp-r-find-testthat-table-positions))
+        (n-cols-diff)
         (nchar-padding 2)
         (print-row))
+
+    ;; conditionally remove the last field columns if the assertions don't have
+    ;; both arguments
+    (setq n-cols-diff (- (length field-entries-1) (length col-positions)))
+    (setq field-entries-1 (butlast field-entries-1 n-cols-diff))
+    (setq field-entries-2 (butlast field-entries-2 n-cols-diff))
 
     ;; insert assertion header
     (move-to-column 0)
