@@ -1722,46 +1722,81 @@ isn't working.  See https://github.com/emacs-ess/ESS/issues/117.
 Note: =M-x ess-display-package-index=, bound to =C-c C-d i= by default, gives
 package index.
 
+See https://emacs.stackexchange.com/q/7321 for more information regarding the
+=prog-mode= registration.
+
+TODO: some ESS mode maps aren't known until after =ess-site= is loaded, so I
+have to put off some of the keybindings.  Is there a more elegant way to do
+this?
 
 #+BEGIN_SRC emacs-lisp
   (use-package ess
+
+    :general
+    (ess-mode-map ";" 'ess-insert-assign)
+    (ess-mode-map "C-j" 'ess-eval-region-or-line-visibly-and-step)
+
+    :custom
+    (ess-style 'RStudio)
+    (ess-indent-with-fancy-comments nil "Always indent comments to current code depth")
+    (ess-plain-first-buffername nil "Name first R process R:1")
+    (ess-auto-width 'window)
+    (ess-roxy-str "#'" "so Roxygen comments are #' not ##'")
+    (inferior-R-args "--no-restore --no-save ")
+
     :config
-    (setq ess-indent-with-fancy-comments nil)  ; disable ESS-style indentation.  TODO: Gets overriden by the style though?
-    (setf (cdr (assoc 'ess-indent-with-fancy-comments ess-own-style-list)) nil))  ; turn off fancy comments for `OWN` style
+    (require 'ess-site)
 
-  ;; load Emacs Speaks Statistics
-  (require 'ess-site)
-  ;; (setq ess-smart-S-assign-key ";")
+    ;; register `ess-mode` with `prog-mode` hooks, etc.  See 
+    (add-hook 'ess-mode-hook (lambda () (run-hooks 'prog-mode-hook)))
+    (put 'ess-mode 'derived-mode-parent 'prog-mode)
 
-  ;; ESS hook additions.  Note that the duplicate calls to (ess-toggle-S-assign
-  ;; nil) are correct: the first call clears the default `ess-smart-S-assign'
-  ;; assignment and the second line re-assigns it to the customized setting.
-  (add-hook 'ess-mode-hook
-            (lambda ()
-              (ess-set-style 'OWN 'quiet)                    ; all other settings besides RStudio mandate `ess-indent-with-fancy-comments` as `t`
-              (setq ess-indent-with-fancy-comments nil)      ; disable ESS-style indentation.  TODO: I've done this twice?
-              (setq ess-smart-S-assign-key ";")  ; reassign ' <- ' to ';'
-              (define-key ess-mode-map (kbd ";") 'ess-insert-assign)
-              (define-key ess-mode-map (kbd "C-j") 'ess-eval-region-or-line-visibly-and-step)
-              ;; (ess-toggle-S-assign nil)          ; removed due to https://stackoverflow.com/q/50954945
-              ;; (ess-toggle-S-assign nil)          ; see above comment
-              (setq-local comment-add 0)         ; so that comments are # not ##
-              (setq ess-roxy-str "#'")           ; Roxygen comments are #' not ##'
-              ;; (local-set-key (kbd "C-'") 'ess-switch-to-ESS)
-              (local-set-key (kbd "C-S-m") (lambda () (interactive) (insert " %>% ")))
-              (setq inferior-R-args "--no-restore --no-save ")
-              ;; (add-hook 'local-write-file-hooks
-              ;;        (lambda ()
-              ;;          (ess-nuke-trailing-whitespace)))
-              (setq ess-swv-processor 'knitr)                 ; weaver
-              (setq ess-swv-pdflatex-commands '("pdflatex"))  ; LaTeX compiler
-              ;; (setq ess-nuke-trailing-whitespace-p t)         ; strip trailing whitespace w/o query
-              ;; (setq ess-sas-local-unix-keys t)                ; SAS keys, see section 13.5
-              (setq ess-eval-visibly 'nowait)    ; don't hold Emacs while commands are run
-              ))
+    ;; bind functions that to maps other than `ess-mode-map'
+    (general-def 'inferior-ess-mode-map ";" 'ess-insert-assign)
+    (general-def 'ess-r-mode-map "C-S-m" (lambda () (interactive) (insert " %>% ")))
+    (general-def 'inferior-ess-mode-map "C-S-m" (lambda () (interactive) (insert " %>% ")))
+    (general-def 'ess-r-mode-map "C-c C-h" 'dp-ess-eval-word))
 
-  (define-key inferior-ess-mode-map (kbd "C-S-m") (lambda () (interactive) (insert " %>% ")))
-  (define-key ess-r-mode-map (kbd "C-c j") #'hydra-r-print-last-var/body)
+  ;; (use-package ess-r-mode
+  ;;   :defer
+  ;;   :custom
+  ;;   (inferior-R-args "--no-restore --no-save ")
+  ;;   :config
+  ;;   (define-key inferior-ess-mode-map (kbd "C-S-m") (lambda () (interactive) (insert " %>% "))))
+
+  ;; ;; load Emacs Speaks Statistics
+  ;; (require 'ess-site)
+  ;; ;; (setq ess-smart-S-assign-key ";")
+
+  ;; ;; ESS hook additions.  Note that the duplicate calls to (ess-toggle-S-assign
+  ;; ;; nil) are correct: the first call clears the default `ess-smart-S-assign'
+  ;; ;; assignment and the second line re-assigns it to the customized setting.
+  ;; (add-hook 'ess-mode-hook
+  ;;           (lambda ()
+  ;;             (ess-set-style 'OWN 'quiet)                    ; all other settings besides RStudio mandate `ess-indent-with-fancy-comments` as `t`
+  ;;             (setq ess-indent-with-fancy-comments nil)      ; disable ESS-style indentation.  TODO: I've done this twice?
+  ;;             (setq ess-smart-S-assign-key ";")  ; reassign ' <- ' to ';'
+  ;;             (define-key ess-mode-map (kbd ";") 'ess-insert-assign)
+  ;;             (define-key ess-mode-map (kbd "C-j") 'ess-eval-region-or-line-visibly-and-step)
+  ;;             ;; (ess-toggle-S-assign nil)          ; removed due to https://stackoverflow.com/q/50954945
+  ;;             ;; (ess-toggle-S-assign nil)          ; see above comment
+  ;;             (setq-local comment-add 0)         ; so that comments are # not ##
+  ;;             (setq ess-roxy-str "#'")           ; Roxygen comments are #' not ##'
+  ;;             ;; (local-set-key (kbd "C-'") 'ess-switch-to-ESS)
+  ;;             (local-set-key (kbd "C-S-m") (lambda () (interactive) (insert " %>% ")))
+  ;;             (setq inferior-R-args "--no-restore --no-save ")
+  ;;             ;; (add-hook 'local-write-file-hooks
+  ;;             ;;        (lambda ()
+  ;;             ;;          (ess-nuke-trailing-whitespace)))
+  ;;             (setq ess-swv-processor 'knitr)                 ; weaver
+  ;;             (setq ess-swv-pdflatex-commands '("pdflatex"))  ; LaTeX compiler
+  ;;             ;; (setq ess-nuke-trailing-whitespace-p t)         ; strip trailing whitespace w/o query
+  ;;             ;; (setq ess-sas-local-unix-keys t)                ; SAS keys, see section 13.5
+  ;;             (setq ess-eval-visibly 'nowait)    ; don't hold Emacs while commands are run
+  ;;             ))
+
+  ;; (define-key inferior-ess-mode-map (kbd "C-S-m") (lambda () (interactive) (insert " %>% ")))
+  ;; (define-key ess-r-mode-map (kbd "C-c j") #'hydra-r-print-last-var/body)
 
   ;; use polymode for markdown and R
   (use-package poly-markdown
@@ -1773,6 +1808,7 @@ package index.
 #+BEGIN_SRC emacs-lisp
   (load "~/.emacs.d/lisp/ess-make-assertions-table-header.el")
   (load "~/.emacs.d/lisp/ess-print-last-var.el")
+  (load "~/.emacs.d/lisp/ess-utils.el")
   (load "~/.emacs.d/lisp/print-table.el")
 #+END_SRC
 
