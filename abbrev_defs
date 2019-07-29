@@ -63,9 +63,7 @@
 
 (define-abbrev-table 'autoconf-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'awk-mode-abbrev-table '())
 
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
 
@@ -77,13 +75,9 @@
 
 (define-abbrev-table 'browse-kill-ring-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c++-mode-abbrev-table '())
 
-(define-abbrev-table 'c-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c-mode-abbrev-table '())
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -167,6 +161,8 @@
     ("purrrr" "purrr" nil 2)
    ))
 
+(define-abbrev-table 'ess-r-package-menu-mode-abbrev-table '())
+
 (define-abbrev-table 'ess-r-transcript-mode-abbrev-table '())
 
 (define-abbrev-table 'ess-rdired-mode-abbrev-table '())
@@ -198,6 +194,18 @@
 (define-abbrev-table 'flycheck-error-list-mode-abbrev-table '())
 
 (define-abbrev-table 'flymake-diagnostics-buffer-mode-abbrev-table '())
+
+(define-abbrev-table 'forge-issue-list-mode-abbrev-table '())
+
+(define-abbrev-table 'forge-notifications-mode-abbrev-table '())
+
+(define-abbrev-table 'forge-post-mode-abbrev-table '())
+
+(define-abbrev-table 'forge-pullreq-list-mode-abbrev-table '())
+
+(define-abbrev-table 'forge-topic-list-mode-abbrev-table '())
+
+(define-abbrev-table 'forge-topic-mode-abbrev-table '())
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
 
@@ -331,7 +339,7 @@
     ("becauseyou" "because you" nil 0)
     ("becomeing" "becoming" nil 0)
     ("becomming" "becoming" nil 0)
-    ("becuase" "because" nil 1)
+    ("becuase" "because" nil 2)
     ("becuse" "because" nil 0)
     ("befoer" "before" nil 0)
     ("beggining" "beginning" nil 1)
@@ -522,6 +530,7 @@
     ("divsion" "division" nil 0)
     ("docuement" "documents" nil 0)
     ("docuemnt" "document" nil 0)
+    ("documentatino" "documentation" nil 1)
     ("documetn" "document" nil 0)
     ("documnet" "document" nil 0)
     ("documnets" "documents" nil 0)
@@ -548,7 +557,7 @@
     ("embarass" "embarrass" nil 0)
     ("emigre" "emigre" nil 0)
     ("enahancements" "enhancements" nil 0)
-    ("english" "English" nil 0)
+    ("english" "English" nil 1)
     ("enought" "enough" nil 0)
     ("entree" "entree" nil 0)
     ("equippment" "equipment" nil 0)
@@ -610,7 +619,8 @@
     ("fromthe" "from the" nil 0)
     ("funciton" "function" nil 3)
     ("funcitons" "functions" nil 1)
-    ("functinos" "functions" nil 2)
+    ("functino" "function" nil 2)
+    ("functinos" "functions" nil 3)
     ("functoin" "function" nil 5)
     ("furneral" "funeral" nil 0)
     ("fwe" "few" nil 0)
@@ -778,7 +788,6 @@
     ("mroe" "more" nil 0)
     ("mysefl" "myself" nil 0)
     ("myu" "my" nil 0)
-    ("naive" "naive" nil 3)
     ("necassarily" "necessarily" nil 0)
     ("necassary" "necessary" nil 0)
     ("neccessarily" "necessarily" nil 0)
@@ -1185,7 +1194,10 @@
 
 (define-abbrev-table 'inferior-ess-mode-abbrev-table '())
 
-(define-abbrev-table 'inferior-ess-r-mode-abbrev-table '())
+(define-abbrev-table 'inferior-ess-r-mode-abbrev-table
+  '(
+    ("reverseday" "reverse Day" nil 0)
+   ))
 
 (define-abbrev-table 'inferior-ess-stata-mode-abbrev-table '())
 
@@ -1267,9 +1279,7 @@
 
 (define-abbrev-table 'neotree-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'objc-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
@@ -1289,9 +1299,7 @@
 
 (define-abbrev-table 'pdf-outline-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'pike-mode-abbrev-table '())
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 

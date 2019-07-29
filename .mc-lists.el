@@ -29,6 +29,7 @@
         ess-smart-S-assign
         ess-smart-comma
         ess-yank
+        evil-append
         evil-backward-char
         evil-backward-word-begin
         evil-change
@@ -106,6 +107,7 @@
         hydra-multiple-cursors/mc/unmark-previous-like-this
         iedit-switch-to-mc-mode
         inferior-ess-send-input
+        move-to-window-line-top-bottom
         scroll-other-window
         scroll-up-line
         sp-kill-hybrid-sexp
