@@ -444,6 +444,7 @@ Add some modes to the list of modes that start out in Emacs state.
   (add-to-list 'evil-emacs-state-modes 'helpful-mode)
   (add-to-list 'evil-emacs-state-modes 'ivy-occur-mode)
   (add-to-list 'evil-emacs-state-modes 'special-mode)
+  (add-to-list 'evil-emacs-state-modes 'ivy-occur-grep-mode)
 #+END_SRC
 
 See the first link for the general details, and the second link for the default

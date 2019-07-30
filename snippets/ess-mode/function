@@ -2,7 +2,6 @@
 # name: function
 # key: fn
 # --
-${1:var} <- function($2) {
-
+function($1) {
    $0
 }

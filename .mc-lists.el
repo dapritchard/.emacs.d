@@ -43,6 +43,9 @@
         evil-normal-state
         evil-previous-line
         evil-replace
+        evil-ret
+        evil-sp-change
+        evil-visual-char
         forward-sexp
         icicle-goto-marker-or-set-mark-command
         icicle-yank-maybe-completing
@@ -98,6 +101,7 @@
         eyebrowse-switch-to-window-config-1
         eyebrowse-switch-to-window-config-2
         eyebrowse-switch-to-window-config-3
+        hydra-multiple-cursors/mc/mark-all-in-region-and-exit
         hydra-multiple-cursors/mc/mark-all-words-like-this-in-defun-and-exit
         hydra-multiple-cursors/mc/mark-next-like-this
         hydra-multiple-cursors/mc/mark-previous-like-this
@@ -105,6 +109,7 @@
         hydra-multiple-cursors/mc/skip-to-previous-like-this
         hydra-multiple-cursors/mc/unmark-next-like-this
         hydra-multiple-cursors/mc/unmark-previous-like-this
+        hydra-multiple-cursors/nil
         iedit-switch-to-mc-mode
         inferior-ess-send-input
         move-to-window-line-top-bottom
