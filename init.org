@@ -318,8 +318,8 @@ else if it sticks (i.e. if I don't find myself missing the keys).
   (global-set-key (kbd "C-S-k") #'crux-kill-line-backwards)
   (global-set-key [(shift return)] #'crux-smart-open-line)           ; doesn't change any test on current line before starting a new line below and moving point
   (global-set-key (kbd "C-S-<return>") #'crux-smart-open-line-above) ; doesn't change any test on current line before starting a new line above and moving point
-  (global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
-  (global-set-key (kbd "C-c M-d") #'crux-duplicate-and-comment-current-line-or-region)
+  (global-set-key (kbd "C-c C-d") #'crux-duplicate-current-line-or-region)
+  (global-set-key (kbd "C-c d") #'crux-duplicate-and-comment-current-line-or-region)
 
   (general-def "M-T" 'dp-title-case-region-or-line)
 
@@ -330,6 +330,7 @@ else if it sticks (i.e. if I don't find myself missing the keys).
     (define-key Info-mode-map (kbd "n") 'Info-next-reference)
     (define-key Info-mode-map (kbd "p") 'Info-prev-reference))
 
+  ;; conflicts with binding for iedit
   (define-key emacs-lisp-mode-map (kbd "C-M-i") nil)
 #+END_SRC
 
@@ -1308,6 +1309,9 @@ See https://github.com/magnars/multiple-cursors.el.
 
 #+BEGIN_SRC emacs-lisp
   (use-package multiple-cursors
+    :general
+    ("C-b" 'mc/edit-lines)
+    ("M-b" 'hydra-multiple-cursors/body)
     :config
     (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
     (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -1680,7 +1684,7 @@ Currently I am using =ggtags= to handle tagging.  FIXME: not working!!
     (global-set-key (kbd "C-h k") #'helpful-key)
     ;; Lookup the current symbol at point. C-c C-d is a common keybinding
     ;; for this in lisp modes.
-    (global-set-key (kbd "C-c C-d") #'helpful-at-point)
+    (global-set-key (kbd "C-x C-d") #'helpful-at-point)
     ;; Look up *F*unctions (excludes macros).  By default, C-h F is bound to
     ;; `Info-goto-emacs-command-node`. Helpful already links to the manual, if a
     ;; function is referenced there.
