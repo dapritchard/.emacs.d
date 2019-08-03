@@ -1758,7 +1758,11 @@ this?
     (add-hook 'ess-mode-hook (lambda () (run-hooks 'prog-mode-hook)))
     (put 'ess-mode 'derived-mode-parent 'prog-mode)
 
-    ;; bind functions that to maps other than `ess-mode-map'
+    ;; prevent adding an additional hash to comments (i.e. so that comments are # not ##)
+    (add-hook 'ess-mode-hook (lambda () (setq-local comment-add 0)))
+
+    ;; bind functions to maps other than `ess-mode-map'.  TODO: is there a way to
+    ;; add these to the `:general` section?
     (general-def 'inferior-ess-mode-map ";" 'ess-insert-assign)
     (general-def 'ess-r-mode-map "C-S-m" (lambda () (interactive) (insert " %>% ")))
     (general-def 'inferior-ess-mode-map "C-S-m" (lambda () (interactive) (insert " %>% ")))
