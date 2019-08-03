@@ -51,19 +51,20 @@ questions about this code remain:
   * Why do we need the call to =eval-when-compile=?
 
 #+BEGIN_SRC emacs-lisp
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(package-initialize)
+  (require 'package)
+  (setq package-enable-at-startup nil)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+  (package-initialize)
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+  ;; install `use-package' if necessary
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
 
-(eval-when-compile
-  (require 'use-package))
+  (eval-when-compile
+    (require 'use-package))
 #+END_SRC
 
 
@@ -387,9 +388,11 @@ https://github.com/noctuid/evil-guide#switching-between-evil-and-emacs to
 disable Vim keybindings in insert state.
 #+BEGIN_SRC emacs-lisp
   (use-package evil
-    :init
-    (setq evil-want-Y-yank-to-eol t)
-    (setq evil-disable-insert-state-bindings t)
+
+    :custom
+    (evil-want-Y-yank-to-eol t)
+    (evil-disable-insert-state-bindings t)
+
     :config
     (evil-mode 1)
     ;; ;; turn off Vim commands in insert mode
@@ -401,27 +404,27 @@ disable Vim keybindings in insert state.
     ;; bind the usual Emacs indentation command to tab while in the evil states,
     ;; and move the `evil-jump-forward' command that was previously bound to tab
     ;; over to the "=" key (i.e. where `evil-indent' is bound by default)
-    ('motion "TAB" 'indent-for-tab-command)
-    ('normal "=" 'evil-jump-forward)
+    ('(normal visual) "TAB" 'indent-for-tab-command)
+    ('(normal visual) "=" 'evil-jump-forward)
 
     ;; I prefer the Emacs versions of these commands to the Vim variants
-    ('normal "e" 'forward-word)
-    ('normal "E" 'sp-forward-sexp)
-    ('normal "w" 'forward-to-word)
-    ('normal "b" 'backward-word)
-    ('normal "B" 'sp-backward-sexp)
-    ('normal "ge" 'backward-to-word)
+    ('(normal visual) "e" 'forward-word)
+    ('(normal visual) "E" 'sp-forward-sexp)
+    ('(normal visual) "w" 'forward-to-word)
+    ('(normal visual) "b" 'backward-word)
+    ('(normal visual) "B" 'sp-backward-sexp)
+    ('(normal visual) "ge" 'backward-to-word)
 
     ;; using `g_' is too inconvenient for my tastes, and it makes sense to pair
     ;; this command with (i.e. sit it next to) `0'
-    ('motion "9" 'evil-last-non-blank)
+    ('(normal visual) "9" 'evil-last-non-blank)
 
     ;; use `browse-kill-ring' in the evil states as well
-    ('motion "M-y" 'browse-kill-ring)
+    ('(normal visual) "M-y" 'browse-kill-ring)
 
     ;; rebind `evil-search-backward' and `evil-search-forward' to avy commands
-    ('motion "?" 'avy-goto-char-1)
-    ('motion "/" 'avy-goto-char-2))
+    ('(normal visual) "?" 'avy-goto-char-1)
+    ('(normal visual) "/" 'avy-goto-char-2))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
