@@ -740,12 +740,13 @@ https://www.reddit.com/r/emacs/comments/8rxm7h/tip_how_to_better_manage_your_spe
         (quietly-read-abbrev-file)))
 
   (use-package flyspell
-    :defer 1
+    :hook
+    (text-mode . turn-on-flyspell)
+    (prog-mode . flyspell-prog-mode)
     :custom
     (flyspell-abbrev-p t)
     (flyspell-issue-message-flag nil)
-    (flyspell-issue-welcome-flag nil)
-    (flyspell-mode 1))
+    (flyspell-issue-welcome-flag nil))
 
   ;; TODO: create a different binding for `flyspell-correct-word-generic`
   (use-package flyspell-correct-ivy
