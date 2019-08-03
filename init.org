@@ -144,6 +144,7 @@ https://gist.github.com/hofmannsven/ff21749b0e6afc50da458bebbd9989c5).
   (load (expand-file-name "~/.emacs.d/lisp/fill-line-with-hyphens.el"))
   (load (expand-file-name "~/.emacs.d/lisp/info-open.el"))
   (load (expand-file-name "~/.emacs.d/lisp/pinned-buffer-mode.el"))
+  (load (expand-file-name "~/.emacs.d/lisp/title-case.el"))
 #+END_SRC
 
 
@@ -320,6 +321,7 @@ else if it sticks (i.e. if I don't find myself missing the keys).
   (global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
   (global-set-key (kbd "C-c M-d") #'crux-duplicate-and-comment-current-line-or-region)
 
+  (general-def "M-T" 'dp-title-case-region-or-line)
 
   ;; change info mode keybindings.  By default `n` and `p` go to the next and
   ;; previous node which always causes me problems.  This changes them to scroll
