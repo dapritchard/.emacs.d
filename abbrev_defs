@@ -203,6 +203,8 @@
 
 (define-abbrev-table 'forge-pullreq-list-mode-abbrev-table '())
 
+(define-abbrev-table 'forge-repository-list-mode-abbrev-table '())
+
 (define-abbrev-table 'forge-topic-list-mode-abbrev-table '())
 
 (define-abbrev-table 'forge-topic-mode-abbrev-table '())
@@ -531,6 +533,7 @@
     ("docuement" "documents" nil 0)
     ("docuemnt" "document" nil 0)
     ("documentatino" "documentation" nil 1)
+    ("documentatoin" "documentation" nil 1)
     ("documetn" "document" nil 0)
     ("documnet" "document" nil 0)
     ("documnets" "documents" nil 0)
@@ -598,7 +601,7 @@
     ("firtile" "fertile" nil 1)
     ("firts" "first" nil 0)
     ("fixit" "fix it" nil 0)
-    ("fo" "of" nil 1)
+    ("fo" "of" nil 6)
     ("follwo" "follow" nil 0)
     ("follwoing" "following" nil 0)
     ("foloowing" "following" nil 0)

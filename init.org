@@ -1261,12 +1261,12 @@ https://github.com/browse-kill-ring/browse-kill-ring.
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-;; create function which cycles forwards through the kill ring
-(defun yank-pop-forwards (arg)
-  (interactive "p")
-  (yank-pop (- arg)))
-;; bind key to previously defined function
-(global-set-key (kbd "M-Y") 'yank-pop-forwards)
+  ;; create function which cycles forwards through the kill ring
+  (defun yank-pop-forwards (arg)
+    (interactive "p")
+    (yank-pop (- arg)))
+  ;; bind key to previously defined function
+  (global-set-key (kbd "C-M-y") 'yank-pop-forwards)
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp

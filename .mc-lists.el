@@ -45,6 +45,7 @@
         evil-replace
         evil-ret
         evil-sp-change
+        evil-sp-delete
         evil-visual-char
         forward-sexp
         icicle-goto-marker-or-set-mark-command
@@ -101,6 +102,7 @@
         eyebrowse-switch-to-window-config-1
         eyebrowse-switch-to-window-config-2
         eyebrowse-switch-to-window-config-3
+        forward-sentence
         hydra-multiple-cursors/mc/mark-all-in-region-and-exit
         hydra-multiple-cursors/mc/mark-all-words-like-this-in-defun-and-exit
         hydra-multiple-cursors/mc/mark-next-like-this
