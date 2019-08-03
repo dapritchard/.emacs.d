@@ -1125,7 +1125,8 @@ look into =sp-rewrap-sexp=.
          ("C-M-e" . nil)))))
 
   (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
-  (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
+  (add-hook 'comint-mode-hook 'smartparens-mode)
+  (add-hook 'text-mode-hook 'smartparens-mode)
 #+END_SRC
 
 By default the backtick "`" is paired with a single quote in "'" scheme-mode,
