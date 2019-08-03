@@ -681,14 +681,17 @@ Enable company mode in all buffers.  See http://company-mode.github.iol
 #+END_SRC
 
 
-Add =company= completion backends to AUCTeX.
+Add =company= completion backends to AUCTeX.  Update: I'm not using this, and
+I'm getting an error 
+=Company backend ’company-math-symbols-commands’ could not be initialized=, 
+so I'm commenting out.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package company-math
-    :config
-    (add-to-list 'company-backends 'company-math-symbols-latex)
-    (add-to-list 'company-backends 'company-math-symbols-unicode)
-    (add-to-list 'company-backends 'company-math-symbols-commands))
+  ;; (use-package company-math
+  ;;   :config
+  ;;   (add-to-list 'company-backends 'company-math-symbols-latex)
+  ;;   (add-to-list 'company-backends 'company-math-symbols-unicode)
+  ;;   (add-to-list 'company-backends 'company-math-symbols-commands))
 #+END_SRC
 
 
