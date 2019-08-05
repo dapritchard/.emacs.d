@@ -67,6 +67,13 @@ questions about this code remain:
     (require 'use-package))
 #+END_SRC
 
+see https://github.com/noctuid/general.el
+#+BEGIN_SRC emacs-lisp
+  (use-package general)
+#+END_SRC
+
+
+
 
 
 
@@ -267,11 +274,6 @@ Basic configurations
 
 ** Keybindings
 
-see https://github.com/noctuid/general.el
-#+BEGIN_SRC emacs-lisp
-  (use-package general)
-#+END_SRC
-
 Remove the prefix key keybindings.  From
 http://pragmaticemacs.com/emacs/use-your-digits-and-a-personal-key-map-for-super-shortcuts/.
 You can still use =C-M-1=, =C-M-2=, etc. for this purpose.  Move this somewhere
@@ -321,6 +323,7 @@ else if it sticks (i.e. if I don't find myself missing the keys).
   (global-set-key (kbd "C-S-<return>") #'crux-smart-open-line-above) ; doesn't change any test on current line before starting a new line above and moving point
   (global-set-key (kbd "C-c C-d") #'crux-duplicate-current-line-or-region)
   (global-set-key (kbd "C-c d") #'crux-duplicate-and-comment-current-line-or-region)
+  (general-def 'c-mode-base-map "C-c C-d" nil)
 
   (general-def "M-T" 'dp-title-case-region-or-line)
 
@@ -386,6 +389,9 @@ for the commands used below to turn off Vim commands in insert mode.  Update
 [2019-05-13 Mon]: I now use the command described in
 https://github.com/noctuid/evil-guide#switching-between-evil-and-emacs to
 disable Vim keybindings in insert state.
+
+In future: for rebinding the evil motion commands, does it make more sense just
+to bind the evil variables to the Emacs variants directly?
 #+BEGIN_SRC emacs-lisp
   (use-package evil
 
@@ -408,23 +414,23 @@ disable Vim keybindings in insert state.
     ('(normal visual) "=" 'evil-jump-forward)
 
     ;; I prefer the Emacs versions of these commands to the Vim variants
-    ('(normal visual) "e" 'forward-word)
-    ('(normal visual) "E" 'sp-forward-sexp)
-    ('(normal visual) "w" 'forward-to-word)
-    ('(normal visual) "b" 'backward-word)
-    ('(normal visual) "B" 'sp-backward-sexp)
-    ('(normal visual) "ge" 'backward-to-word)
+    ('(normal visual operator) "e" 'forward-word)
+    ('(normal visual operator) "E" 'sp-forward-sexp)
+    ('(normal visual operator) "w" 'forward-to-word)
+    ('(normal visual operator) "b" 'backward-word)
+    ('(normal visual operator) "B" 'sp-backward-sexp)
+    ('(normal visual operator) "ge" 'backward-to-word)
 
     ;; using `g_' is too inconvenient for my tastes, and it makes sense to pair
     ;; this command with (i.e. sit it next to) `0'
-    ('(normal visual) "9" 'evil-last-non-blank)
+    ('(normal visual operator) "9" 'evil-last-non-blank)
 
     ;; use `browse-kill-ring' in the evil states as well
     ('(normal visual) "M-y" 'browse-kill-ring)
 
     ;; rebind `evil-search-backward' and `evil-search-forward' to avy commands
-    ('(normal visual) "?" 'avy-goto-char-1)
-    ('(normal visual) "/" 'avy-goto-char-2))
+    ('(normal visual operator) "?" 'avy-goto-char-1)
+    ('(normal visual operator) "/" 'avy-goto-char-2))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
