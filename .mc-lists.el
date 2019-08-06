@@ -97,12 +97,15 @@
         ess-set-style
         evil-emacs-state
         evil-exit-emacs-state
+        evil-record-macro
         evil-scroll-down
         evil-scroll-page-down
         eyebrowse-switch-to-window-config-1
         eyebrowse-switch-to-window-config-2
         eyebrowse-switch-to-window-config-3
         forward-sentence
+        hydra-multiple-cursors/body
+        hydra-multiple-cursors/mc/mark-all-dwim-and-exit
         hydra-multiple-cursors/mc/mark-all-in-region-and-exit
         hydra-multiple-cursors/mc/mark-all-words-like-this-in-defun-and-exit
         hydra-multiple-cursors/mc/mark-next-like-this

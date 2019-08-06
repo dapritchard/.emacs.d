@@ -244,8 +244,12 @@ Basic configurations
   ;; ;; show matching parentheses
   ;; (show-paren-mode 1)
 
-  ;; default to truncate lines
-  (set-default 'truncate-lines t)
+  ;; the default behavior for when lines are longer than the window size is line
+  ;; wrapping, but set programming modes to truncate lines instead.  Note that we
+  ;; could use `(set-default truncate-lines t)' to set this globally, but I prefer
+  ;; line wrap for comint modes.
+  (defun use-truncate-lines () (setq truncate-lines t))
+  (add-hook 'prog-mode-hook 'use-truncate-lines)
 
   ;; type "y" or "n" instead of "yes" or "no"
   (fset 'yes-or-no-p 'y-or-n-p)
