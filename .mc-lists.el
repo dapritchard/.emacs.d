@@ -105,6 +105,7 @@
         eyebrowse-switch-to-window-config-3
         forward-sentence
         hydra-multiple-cursors/body
+        hydra-multiple-cursors/mc/insert-numbers-and-exit
         hydra-multiple-cursors/mc/mark-all-dwim-and-exit
         hydra-multiple-cursors/mc/mark-all-in-region-and-exit
         hydra-multiple-cursors/mc/mark-all-words-like-this-in-defun-and-exit
@@ -120,6 +121,7 @@
         move-to-window-line-top-bottom
         scroll-other-window
         scroll-up-line
+        sp-backward-unwrap-sexp
         sp-kill-hybrid-sexp
         wdired-finish-edit
         ))

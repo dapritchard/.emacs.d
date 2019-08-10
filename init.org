@@ -153,6 +153,7 @@ https://gist.github.com/hofmannsven/ff21749b0e6afc50da458bebbd9989c5).
   (load (expand-file-name "~/.emacs.d/lisp/info-open.el"))
   (load (expand-file-name "~/.emacs.d/lisp/pinned-buffer-mode.el"))
   (load (expand-file-name "~/.emacs.d/lisp/title-case.el"))
+  (load (expand-file-name "~/.emacs.d/lisp/evil-motion-wrappers.el"))
 #+END_SRC
 
 
@@ -434,7 +435,13 @@ to bind the evil variables to the Emacs variants directly?
 
     ;; rebind `evil-search-backward' and `evil-search-forward' to avy commands
     ('(normal visual operator) "?" 'avy-goto-char-1)
-    ('(normal visual operator) "/" 'avy-goto-char-2))
+    ('(normal visual operator) "/" 'avy-goto-char-2)
+
+    ;; I use `ace-window' and `avy-goto-char-2' frequently for navigation, and I
+    ;; find it convenient to wrap these commands so that they exit insert-state
+    ;; before moving the cursor
+    ('insert "M-o" 'dp-evil-normal-state-then-ace-window)
+    ('insert "C-'" 'dp-evil-normal-state-then-avy-goto-char-2))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
