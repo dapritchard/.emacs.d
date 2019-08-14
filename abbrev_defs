@@ -158,7 +158,7 @@
 (define-abbrev-table 'ess-r-mode-abbrev-table
   '(
     ("purr" "purrr" nil 4)
-    ("purrrr" "purrr" nil 2)
+    ("purrrr" "purrr" nil 7)
    ))
 
 (define-abbrev-table 'ess-r-package-menu-mode-abbrev-table '())
@@ -563,6 +563,7 @@
     ("english" "English" nil 1)
     ("enought" "enough" nil 0)
     ("entree" "entree" nil 0)
+    ("entreis" "entries" nil 1)
     ("equippment" "equipment" nil 0)
     ("equivalant" "equivalent" nil 0)
     ("esle" "else" nil 0)
@@ -1042,7 +1043,7 @@
     ("talkign" "talking" nil 0)
     ("tath" "that" nil 0)
     ("tecnical" "technical" nil 0)
-    ("teh" "the" nil 10)
+    ("teh" "the" nil 12)
     ("tehy" "they" nil 0)
     ("terminiated" "terminated" nil 0)
     ("termoil" "turmoil" nil 0)
@@ -1136,7 +1137,7 @@
     ("wief" "wife" nil 0)
     ("wierd" "weird" nil 0)
     ("wihch" "which" nil 0)
-    ("wiht" "with" nil 1)
+    ("wiht" "with" nil 2)
     ("wihtout" "without" nil 1)
     ("willbe" "will be" nil 0)
     ("windoes" "windows" nil 0)

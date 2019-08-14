@@ -190,10 +190,11 @@ Basic configurations
   ;; ;; delete trailing whitespace when saving files.  Note: switch to ws-butler?
   ;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-  ;; see https://github.com/lewang/ws-butler
+  ;; see https://github.com/lewang/ws-butler.  I used to use `(add-hook
+  ;; 'prog-mode-hook #'ws-butler-mode)`, but now I just turn it on everywhere.
   (use-package ws-butler
     :config
-    (add-hook 'prog-mode-hook #'ws-butler-mode))
+    (ws-butler-global-mode))
 
   ;; disable graphical toolbar at the top of the screen
   (tool-bar-mode -1)
@@ -253,6 +254,8 @@ Basic configurations
   (defun use-truncate-lines () (setq-local truncate-lines t))
   (add-hook 'prog-mode-hook 'use-truncate-lines)
   (add-hook 'dired-mode 'use-truncate-lines)
+  (add-hook 'yaml-mode 'use-truncate-lines)
+  (add-hook 'ivy-occur-grep-mode 'use-truncate-lines)
 
   ;; type "y" or "n" instead of "yes" or "no"
   (fset 'yes-or-no-p 'y-or-n-p)

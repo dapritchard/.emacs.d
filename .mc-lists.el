@@ -88,6 +88,7 @@
         sp-transpose-sexp
         sp-unwrap-sexp
         transpose-words
+        yaml-electric-dash-and-dot
         ))
 
 (setq mc/cmds-to-run-once
