@@ -41,6 +41,7 @@
         evil-insert
         evil-next-line
         evil-normal-state
+        evil-open-below
         evil-previous-line
         evil-replace
         evil-ret
