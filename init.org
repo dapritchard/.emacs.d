@@ -675,6 +675,33 @@ For more detail, see the following links:
 
 
 
+* Language-server protocol (LSP) setup
+
+See https://github.com/emacs-lsp/lsp-mode for the LSP project.
+
+The following code is directly adapted from
+https://github.com/emacs-lsp/lsp-mode#installation.  Also see
+https://github.com/rememberYou/.emacs.d/blob/master/config.org#lsp.
+#+BEGIN_SRC emacs-lisp
+  (use-package lsp-mode
+    :hook (python-mode-hook . lsp)
+    :commands lsp
+    :custom (lsp-prefer-flymake nil))
+
+  ;; optionally
+  (use-package lsp-ui :commands lsp-ui-mode)
+  (use-package company-lsp :commands company-lsp)
+  (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+  (use-package dap-mode
+    :after lsp-mode
+    :config
+    (dap-mode t)
+    (dap-ui-mode t))
+  ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+#+END_SRC
+
+
+
 
 * Auto-complete and textual substitution
 
@@ -1984,18 +2011,24 @@ buffers.  See http://www.nongnu.org/geiser/geiser_3.html#choosing_002dimpl.
 
 Python settings
 #+BEGIN_SRC emacs-lisp
-  (use-package elpy
-    :config
-    (elpy-enable)
-    (setq elpy-rpc-python-command (executable-find "python3")
-          python-shell-interpreter (executable-find "ipython")
-          python-shell-interpreter-args "-i --simple-prompt"))
+  ;; (use-package elpy
+  ;;   :config
+  ;;   (elpy-enable)
+  ;;   (setq elpy-rpc-python-command (executable-find "python3")
+  ;;         python-shell-interpreter (executable-find "ipython")
+  ;;         python-shell-interpreter-args "-i --simple-prompt"))
 
-  (define-key elpy-mode-map (kbd "C-j") #'elpy-shell-send-statement-and-step)
+  ;; (define-key elpy-mode-map (kbd "C-j") #'elpy-shell-send-statement-and-step)
 
-  ;; ;; enable autopep8 formatting on save
-  ;; (require 'py-autopep8)
-  ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+  ;; ;; ;; enable autopep8 formatting on save
+  ;; ;; (require 'py-autopep8)
+  ;; ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+#+END_SRC
+
+
+#+BEGIN_SRC emacs-lisp
+  (setq python-shell-interpreter (executable-find "ipython")
+        python-shell-interpreter-args "-i --simple-prompt")
 #+END_SRC
 
 
