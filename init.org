@@ -689,7 +689,12 @@ https://github.com/rememberYou/.emacs.d/blob/master/config.org#lsp.
     :custom (lsp-prefer-flymake nil))
 
   ;; optionally
-  (use-package lsp-ui :commands lsp-ui-mode)
+  (use-package lsp-ui :commands lsp-ui-mode
+    :general
+    (lsp-ui-mode-map "M-," 'lsp-ui-peek-find-definitions)
+    (lsp-ui-mode-map "M-?" 'lsp-ui-peek-find-references)
+    :custom
+    (lsp-ui-sideline-show-hover nil))
   (use-package company-lsp :commands company-lsp)
   (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
   (use-package dap-mode
@@ -1021,6 +1026,32 @@ https://github.com/abo-abo/ace-window for details regarding ace-window.
     :config
     (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
     (setq aw-background nil))
+#+END_SRC
+
+
+
+
+** Finding definitions
+
+Install =dumb-jump=, which provides jump-to-definition functionality with the
+minimal amount of configuration / hassle (hence "dumb").
+https://github.com/jacktasia/dumb-jump
+#+BEGIN_SRC emacs-lisp
+  (use-package dumb-jump
+    :custom
+    (dumb-jump-selector 'ivy)
+    :general
+    ("C-M-g" 'hydra-dumb-jump/body)
+    :config
+    (defhydra hydra-dumb-jump (:color blue :columns 3)
+      "Dumb Jump"
+      ("j" dumb-jump-go "Go")
+      ("o" dumb-jump-go-other-window "Other window")
+      ("e" dumb-jump-go-prefer-external "Go external")
+      ("x" dumb-jump-go-prefer-external-other-window "Go external other window")
+      ("i" dumb-jump-go-prompt "Prompt")
+      ("l" dumb-jump-quick-look "Quick look")
+      ("b" dumb-jump-back "Back")))
 #+END_SRC
 
 
@@ -2007,28 +2038,27 @@ buffers.  See http://www.nongnu.org/geiser/geiser_3.html#choosing_002dimpl.
 
 
 
+
 ** Python
 
-Python settings
-#+BEGIN_SRC emacs-lisp
-  ;; (use-package elpy
-  ;;   :config
-  ;;   (elpy-enable)
-  ;;   (setq elpy-rpc-python-command (executable-find "python3")
-  ;;         python-shell-interpreter (executable-find "ipython")
-  ;;         python-shell-interpreter-args "-i --simple-prompt"))
-
-  ;; (define-key elpy-mode-map (kbd "C-j") #'elpy-shell-send-statement-and-step)
-
-  ;; ;; ;; enable autopep8 formatting on save
-  ;; ;; (require 'py-autopep8)
-  ;; ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-#+END_SRC
-
-
+=python-mode= settings.
 #+BEGIN_SRC emacs-lisp
   (setq python-shell-interpreter (executable-find "ipython")
         python-shell-interpreter-args "-i --simple-prompt")
+#+END_SRC
+
+Elpy settings
+#+BEGIN_SRC emacs-lisp
+  (use-package elpy
+    :config
+    (elpy-enable)
+    (setq elpy-rpc-python-command (executable-find "python3")))
+
+  (define-key elpy-mode-map (kbd "C-j") #'elpy-shell-send-statement-and-step)
+
+  ;; ;; enable autopep8 formatting on save
+  ;; (require 'py-autopep8)
+  ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 #+END_SRC
 
 
