@@ -353,7 +353,7 @@
     ("beleiev" "believe" nil 0)
     ("beleieve" "believe" nil 0)
     ("beleif" "belief" nil 0)
-    ("beleive" "believe" nil 0)
+    ("beleive" "believe" nil 1)
     ("beleived" "believed" nil 0)
     ("beleives" "believes" nil 0)
     ("beliefe" "belief" nil 0)
@@ -528,6 +528,7 @@
     ("dispaly" "display" nil 0)
     ("dissonent" "dissonant" nil 0)
     ("distribusion" "distribution" nil 0)
+    ("distributino" "distribution" nil 1)
     ("distrubution" "distribution" nil 0)
     ("divsion" "division" nil 0)
     ("docuement" "documents" nil 0)
@@ -560,7 +561,7 @@
     ("embarass" "embarrass" nil 0)
     ("emigre" "emigre" nil 0)
     ("enahancements" "enhancements" nil 0)
-    ("english" "English" nil 1)
+    ("english" "English" nil 2)
     ("enought" "enough" nil 0)
     ("entree" "entree" nil 0)
     ("equippment" "equipment" nil 0)
@@ -601,7 +602,7 @@
     ("firtile" "fertile" nil 1)
     ("firts" "first" nil 0)
     ("fixit" "fix it" nil 0)
-    ("fo" "of" nil 6)
+    ("fo" "of" nil 10)
     ("follwo" "follow" nil 0)
     ("follwoing" "following" nil 0)
     ("foloowing" "following" nil 0)
@@ -810,7 +811,7 @@
     ("occured" "occurred" nil 2)
     ("occurence" "occurrence" nil 0)
     ("occurences" "occurrences" nil 1)
-    ("occurrance" "occurrence" nil 0)
+    ("occurrance" "occurrence" nil 1)
     ("ocur" "occur" nil 0)
     ("odbc" "ODBC" nil 0)
     ("oeprator" "operator" nil 0)
@@ -839,6 +840,7 @@
     ("orginized" "organized" nil 0)
     ("originial" "original" nil 0)
     ("orignal" "original" nil 0)
+    ("ot" "to" nil 1)
     ("otehr" "other" nil 0)
     ("otu" "out" nil 0)
     ("outof" "out of" nil 0)
@@ -1042,7 +1044,7 @@
     ("talkign" "talking" nil 0)
     ("tath" "that" nil 0)
     ("tecnical" "technical" nil 0)
-    ("teh" "the" nil 10)
+    ("teh" "the" nil 11)
     ("tehy" "they" nil 0)
     ("terminiated" "terminated" nil 0)
     ("termoil" "turmoil" nil 0)
@@ -1162,6 +1164,7 @@
     ("wtih" "with" nil 0)
     ("wuould" "would" nil 0)
     ("wya" "way" nil 0)
+    ("yeild" "yield" nil 1)
     ("yera" "year" nil 0)
     ("yeras" "years" nil 0)
     ("yersa" "years" nil 0)
@@ -1180,6 +1183,22 @@
 (define-abbrev-table 'grep-mode-abbrev-table '())
 
 (define-abbrev-table 'gud-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-cabal-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-compilation-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-debug-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-error-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-interactive-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-presentation-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-yesod-parse-routes-mode-abbrev-table '())
 
 (define-abbrev-table 'help-mode-abbrev-table '())
 
@@ -1204,15 +1223,23 @@
 
 (define-abbrev-table 'inferior-ess-stata-mode-abbrev-table '())
 
+(define-abbrev-table 'inferior-haskell-mode-abbrev-table '())
+
 (define-abbrev-table 'inferior-julia-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-python-mode-abbrev-table '())
+
+(define-abbrev-table 'intero-help-mode-abbrev-table '())
+
+(define-abbrev-table 'intero-repl-mode-abbrev-table '())
 
 (define-abbrev-table 'ivy-occur-grep-mode-abbrev-table '())
 
 (define-abbrev-table 'ivy-occur-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table '())
+(define-abbrev-table 'java-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'js-jsx-mode-abbrev-table '())
 
@@ -1220,9 +1247,18 @@
 
 (define-abbrev-table 'julia-mode-abbrev-table '())
 
-(define-abbrev-table 'latex-mode-abbrev-table '())
+(define-abbrev-table 'latex-mode-abbrev-table
+  '(
+    ("deliniating" "delineating" nil 0)
+    ("occurance" "occurrence" nil 0)
+    ("ofter" "often" nil 0)
+    ("questionairre" "questionnaire" nil 1)
+    ("yeilds" "yields" nil 0)
+   ))
 
 (define-abbrev-table 'lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'literate-haskell-mode-abbrev-table '())
 
 (define-abbrev-table 'log-edit-mode-abbrev-table '())
 

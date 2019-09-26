@@ -2062,6 +2062,20 @@ Elpy settings
 #+END_SRC
 
 
+
+** Haskell
+
+See https://haskell-lang.org/intero
+#+BEGIN_SRC emacs-lisp
+  (use-package haskell-mode)
+
+  (use-package intero
+    :hook
+    (haskell-mode-hook . intero-mode))
+#+END_SRC
+
+
+
 ** SQL
 
 #+BEGIN_SRC emacs-lisp
