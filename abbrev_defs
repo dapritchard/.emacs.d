@@ -578,7 +578,7 @@
     ("exhcange" "exchange" nil 0)
     ("exhcanges" "exchanges" nil 0)
     ("experiance" "experience" nil 0)
-    ("experienc" "experience" nil 0)
+    ("experienc" "experience" nil 1)
     ("exprience" "experience" nil 0)
     ("exprienced" "experienced" nil 0)
     ("eyt" "yet" nil 0)
@@ -602,7 +602,7 @@
     ("firtile" "fertile" nil 1)
     ("firts" "first" nil 0)
     ("fixit" "fix it" nil 0)
-    ("fo" "of" nil 10)
+    ("fo" "of" nil 15)
     ("follwo" "follow" nil 0)
     ("follwoing" "following" nil 0)
     ("foloowing" "following" nil 0)
@@ -676,7 +676,7 @@
     ("howerver" "however" nil 0)
     ("hsa" "has" nil 0)
     ("hsi" "his" nil 0)
-    ("hte" "the" nil 2)
+    ("hte" "the" nil 3)
     ("htere" "there" nil 0)
     ("htese" "these" nil 0)
     ("htey" "they" nil 0)
@@ -792,6 +792,7 @@
     ("mroe" "more" nil 0)
     ("mysefl" "myself" nil 0)
     ("myu" "my" nil 0)
+    ("nad" "and" nil 2)
     ("necassarily" "necessarily" nil 0)
     ("necassary" "necessary" nil 0)
     ("neccessarily" "necessarily" nil 0)
@@ -1044,7 +1045,7 @@
     ("talkign" "talking" nil 0)
     ("tath" "that" nil 0)
     ("tecnical" "technical" nil 0)
-    ("teh" "the" nil 11)
+    ("teh" "the" nil 15)
     ("tehy" "they" nil 0)
     ("terminiated" "terminated" nil 0)
     ("termoil" "turmoil" nil 0)
@@ -1134,7 +1135,7 @@
     ("whos" "who's" nil 0)
     ("whove" "who've" nil 0)
     ("whta" "what" nil 0)
-    ("widnow" "window" nil 1)
+    ("widnow" "window" nil 2)
     ("wief" "wife" nil 0)
     ("wierd" "weird" nil 0)
     ("wihch" "which" nil 0)
@@ -1237,9 +1238,7 @@
 
 (define-abbrev-table 'ivy-occur-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'java-mode-abbrev-table '())
 
 (define-abbrev-table 'js-jsx-mode-abbrev-table '())
 

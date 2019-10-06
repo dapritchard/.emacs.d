@@ -20,6 +20,7 @@
         c-electric-star
         counsel-M-x
         cycle-spacing
+        easy-kill
         end-of-visual-line
         ess-indent-or-complete
         ess-insert-assign
@@ -35,6 +36,7 @@
         evil-change
         evil-delete
         evil-digit-argument-or-evil-beginning-of-line
+        evil-exchange
         evil-force-normal-state
         evil-forward-char
         evil-forward-word-end
@@ -122,6 +124,7 @@
         scroll-other-window
         scroll-up-line
         sp-backward-unwrap-sexp
+        sp-down-sexp
         sp-kill-hybrid-sexp
         wdired-finish-edit
         ))

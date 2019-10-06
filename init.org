@@ -1522,6 +1522,14 @@ Taken from https://github.com/otijhuis/emacs.d/blob/master/config/hydra-settings
 
 ** Org mode stuff
 
+Define global keybindings.  See https://orgmode.org/manual/Activation.html#Activation.
+#+BEGIN_SRC emacs-lisp
+  (general-def
+    "C-c l" 'org-store-link
+    "C-c a" 'org-agenda
+    "C-c c" 'org-capture)
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp
   ;; save clock history across Emacs sessions.  See
   ;; https://orgmode.org/manual/Clocking-work-time.html
@@ -2060,6 +2068,7 @@ Elpy settings
   ;; (require 'py-autopep8)
   ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 #+END_SRC
+
 
 
 
