@@ -1492,6 +1492,7 @@ Taken from https://github.com/otijhuis/emacs.d/blob/master/config/hydra-settings
   ;; see docstring for `org-latex-listings`
   (setq org-latex-listings t)
   (require 'ox-latex)
+  (require 'ox-md)
   (add-to-list 'org-latex-packages-alist '("" "listings"))
   ;; see docstring for `org-latex-default-packages-alist`.  Note that according to
   ;; a string (as opposed to the usual 3-list) is inserted "as-is" into the header
