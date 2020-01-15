@@ -279,6 +279,13 @@ Basic configurations
   (setq auto-revert-verbose nil)
   ;; auto refresh dired when file changes
   (add-hook 'dired-mode-hook 'auto-revert-mode)
+
+  ;; allow horizontal scrolling via the mouse.  Based off of
+  ;; https://www.emacswiki.org/emacs/TruncateLines.
+  (global-set-key (kbd "<wheel-right>") (lambda () (interactive)
+                                          (if truncate-lines (evil-scroll-column-right 1))))
+  (global-set-key (kbd "<wheel-left>") (lambda () (interactive)
+                                         (if truncate-lines (evil-scroll-column-left 1))))
 #+END_SRC
 
 
