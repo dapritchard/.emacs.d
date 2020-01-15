@@ -1519,6 +1519,13 @@ Taken from https://github.com/otijhuis/emacs.d/blob/master/config/hydra-settings
 #+END_SRC
 
 
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :hook
+    (org-mode . (lambda () (org-bullets-mode 1))))
+#+END_SRC
+
+
 
 
 * Ivy + counsel + swiper

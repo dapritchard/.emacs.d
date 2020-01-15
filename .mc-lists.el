@@ -55,6 +55,7 @@
         insert-parentheses
         keyboard-escape-quit
         kill-region
+        kill-visual-line
         mark-sexp
         markdown-outdent-or-delete
         next-buffer
@@ -79,6 +80,7 @@
         sp-backward-sexp
         sp-beginning-of-sexp
         sp-delete-char
+        sp-down-sexp
         sp-end-of-sexp
         sp-forward-sexp
         sp-forward-slurp-sexp
@@ -95,6 +97,8 @@
 (setq mc/cmds-to-run-once
       '(
         ace-window
+        ess-eval-region-or-line-visibly-and-step
+        ess-goto-end-of-function-or-para
         ess-r-devtools-load-package
         ess-set-style
         evil-emacs-state
