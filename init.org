@@ -2062,6 +2062,15 @@ Use and configure =sqlup-mode=.
 #+END_SRC
 
 
+** dhall
+
+#+BEGIN_SRC emacs-lisp
+  (use-package dhall-mode
+    :ensure t
+    :mode "\\.dhall\\'")
+#+END_SRC
+
+
 * Things to try (that are not yet in my configuration)
 
 ** Smart occur
