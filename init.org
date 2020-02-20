@@ -829,6 +829,15 @@ https://www.reddit.com/r/emacs/comments/8rxm7h/tip_how_to_better_manage_your_spe
 
 
 
+** Ranger
+
+See http://github.com/ralesi/ranger.el
+#+BEGIN_SRC emacs-lisp
+  (use-package ranger)
+#+END_SRC
+
+
+
 ** Sunrise commander
 
 See the following for info:

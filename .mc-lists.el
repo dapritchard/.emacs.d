@@ -103,6 +103,7 @@
         ess-set-style
         evil-emacs-state
         evil-exit-emacs-state
+        evil-iedit-state/iedit-mode
         evil-record-macro
         evil-scroll-down
         evil-scroll-page-down
