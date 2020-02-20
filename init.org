@@ -257,6 +257,8 @@ Basic configurations
   (add-hook 'yaml-mode 'use-truncate-lines)
   (add-hook 'ivy-occur-grep-mode 'use-truncate-lines)
 
+  (global-set-key (kbd "C-c C-4") 'toggle-truncate-lines)
+
   ;; type "y" or "n" instead of "yes" or "no"
   (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -484,8 +486,8 @@ Add some modes to the list of modes that start out in Emacs state.
 
 See the first link for the general details, and the second link for the default
 keybindings:
-* https://github.com/gabesoft/evil-mc
-* https://github.com/gabesoft/evil-mc/blob/master/evil-mc.el
+- https://github.com/gabesoft/evil-mc
+- https://github.com/gabesoft/evil-mc/blob/master/evil-mc.el
 
 Note that the changing of the cursor to the =|= in insert mode does not work for
 macOS according to https://github.com/gabesoft/evil-mc/issues, so in this case
@@ -1474,6 +1476,18 @@ Taken from https://github.com/otijhuis/emacs.d/blob/master/config/hydra-settings
   :config
   (global-set-key [remap kill-ring-save] #'easy-kill)
   (global-set-key [remap mark-sexp] #'easy-mark))
+#+END_SRC
+
+
+
+** TODO ediff configuration
+
+See https://oremacs.com/2015/01/17/setting-up-ediff/
+#+BEGIN_SRC emacs-lisp
+  (custom-set-variables
+   '(ediff-diff-options "-w")
+   '(ediff-split-window-function (quote split-window-horizontally))
+   '(ediff-window-setup-function (quote ediff-setup-windows-plain)))
 #+END_SRC
 
 
