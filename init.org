@@ -833,9 +833,10 @@ https://www.reddit.com/r/emacs/comments/8rxm7h/tip_how_to_better_manage_your_spe
 
 ** Ranger
 
-See http://github.com/ralesi/ranger.el
+See http://github.com/ralesi/ranger.el.  Currently commenting out until I have
+time to figure out how to use this.
 #+BEGIN_SRC emacs-lisp
-  (use-package ranger)
+  ;; (use-package ranger)
 #+END_SRC
 
 
@@ -1225,6 +1226,9 @@ https://github.com/Fuco1/.emacs.d/blob/master/files/smartparens.el
 
   (define-key smartparens-mode-map (kbd "M-g M-s") 'sp-split-sexp)
   (define-key smartparens-mode-map (kbd "M-g s") 'sp-join-sexp)
+
+  (define-key smartparens-mode-map (kbd "M-g M-r") 'sp-rewrap-sexp)
+
 #+END_SRC
 
 
@@ -2043,6 +2047,34 @@ Python settings
 #+END_SRC
 
 
+
+
+** Haskell
+
+Adapted from
+https://www.reddit.com/r/haskell/comments/e5gcq0/best_emacs_experience_for_haskell/f9kp8uk/
+
+#+BEGIN_SRC emacs-lisp
+  (use-package haskell-mode :defer t
+    :config
+    (add-hook 'haskell-mode-hook
+              (lambda ()
+                (interactive-haskell-mode)
+                (flycheck-mode)
+                (dante-mode)
+                (setq haskell-mode-stylish-haskell-path "~/.local/bin/brittany")
+                ;; (setq haskell-stylish-on-save t)
+                ;; (set-face-underline 'flycheck-error nil)
+                ;; (set-face-underline 'flycheck-warning nil)
+                )))
+
+  (use-package dante :defer t
+    :after haskell-mode
+    :config
+    (setq dante-methods '(stack)))
+#+END_SRC
+
+
 ** SQL
 
 #+BEGIN_SRC emacs-lisp
@@ -2093,6 +2125,16 @@ Use and configure =sqlup-mode=.
     :mode "\\.dhall\\'")
 #+END_SRC
 
+
+** docker
+
+#+BEGIN_SRC emacs-lisp
+  ;; ;; TODO: something in the expression below causes an error during
+  ;; ;; initialization
+  ;; (use-package dockerfile-mode
+  ;;   :config
+  ;;   (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+#+END_SRC
 
 * Things to try (that are not yet in my configuration)
 
