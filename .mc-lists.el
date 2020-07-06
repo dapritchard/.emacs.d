@@ -10,6 +10,7 @@
         TeX-newline
         avy-goto-char
         backward-sexp
+        backward-to-word
         beginning-of-visual-line
         c-electric-brace
         c-electric-colon
@@ -30,24 +31,30 @@
         ess-smart-comma
         ess-yank
         evil-append
+        evil-append-line
         evil-backward-char
         evil-backward-word-begin
         evil-change
         evil-delete
         evil-digit-argument-or-evil-beginning-of-line
+        evil-digit-argument-or-evil-iedit-state/evil-beginning-of-line
         evil-force-normal-state
         evil-forward-char
         evil-forward-word-end
         evil-insert
+        evil-last-non-blank
         evil-next-line
         evil-normal-state
         evil-open-below
+        evil-paste-after
+        evil-paste-before
         evil-previous-line
         evil-replace
         evil-ret
         evil-sp-change
         evil-sp-delete
         evil-visual-char
+        evil-visual-line
         forward-sexp
         icicle-goto-marker-or-set-mark-command
         icicle-yank-maybe-completing
@@ -86,10 +93,13 @@
         sp-forward-slurp-sexp
         sp-kill-region
         sp-kill-word
+        sp-mark-sexp
         sp-next-sexp
         sp-remove-active-pair-overlay
+        sp-rewrap-sexp
         sp-transpose-sexp
         sp-unwrap-sexp
+        sp-up-sexp
         transpose-words
         yaml-electric-dash-and-dot
         ))
@@ -115,6 +125,7 @@
         hydra-multiple-cursors/mc/insert-numbers-and-exit
         hydra-multiple-cursors/mc/mark-all-dwim-and-exit
         hydra-multiple-cursors/mc/mark-all-in-region-and-exit
+        hydra-multiple-cursors/mc/mark-all-symbols-like-this-in-defun-and-exit
         hydra-multiple-cursors/mc/mark-all-words-like-this-in-defun-and-exit
         hydra-multiple-cursors/mc/mark-next-like-this
         hydra-multiple-cursors/mc/mark-previous-like-this
@@ -126,6 +137,7 @@
         iedit-switch-to-mc-mode
         inferior-ess-send-input
         move-to-window-line-top-bottom
+        rectangle-number-lines
         scroll-other-window
         scroll-up-line
         sp-backward-unwrap-sexp

@@ -2,12 +2,19 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("(elisp) 2019-05-18 generator"
- (front-context-string . "\n11.6 Generators")
- (rear-context-string . "trol Structures\n")
- (position . 476194)
+(("(elisp) 2020-06-24 Customization"
+ (front-context-string . "\n14 Writing Cust")
+ (rear-context-string . "acros,  Up: Top\n")
+ (position . 257657)
  (filename . "/usr/share/info/elisp")
- (info-node . "Generators")
+ (info-node . "Customization")
+ (handler . Info-bookmark-jump))
+("(elisp) 2020-06-21 Functions"
+ (front-context-string)
+ (rear-context-string . "unctions work.\n\n")
+ (position . 186843)
+ (filename . "/usr/share/info/elisp")
+ (info-node . "Functions")
  (handler . Info-bookmark-jump))
 ("(elisp) 2019-05-17 control structures"
  (front-context-string . "\n11 Control Stru")
