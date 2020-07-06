@@ -355,6 +355,9 @@ else if it sticks (i.e. if I don't find myself missing the keys).
 
   ;; conflicts with binding for iedit
   (define-key emacs-lisp-mode-map (kbd "C-M-i") nil)
+
+  (global-set-key (kbd "C-x C-2") (lambda () (interactive)(split-window-vertically) (other-window 1)))
+  (global-set-key (kbd "C-x C-3") (lambda () (interactive)(split-window-horizontally) (other-window 1)))
 #+END_SRC
 
 
