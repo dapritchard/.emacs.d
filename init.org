@@ -965,11 +965,12 @@ See
 
 See https://github.com/Alexander-Miller/treemacs/.
 #+BEGIN_SRC emacs-lisp
-  (use-package treemacs
-    :config
-    (treemacs-resize-icons 15)
-    (global-set-key (kbd "C-c t") 'treemacs)
-    (global-set-key (kbd "C-c C-t") 'treemacs-select-window))
+    (use-package treemacs
+      :config
+      (treemacs-resize-icons 15)
+      (global-set-key (kbd "C-c t") 'treemacs)
+      (global-set-key (kbd "C-c C-t") 'treemacs-select-window)
+      (setq treemacs-width 45))
 #+END_SRC
 
 Use =treemacs-projectile= which adds the command =treemacs-projectile=, which
@@ -1923,6 +1924,15 @@ this?
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
 #+END_SRC
+
+
+
+** vterm
+
+#+BEGIN_SRC emacs-lisp
+  (use-package vterm)
+#+END_SRC
+
 
 
 ** LaTeX
